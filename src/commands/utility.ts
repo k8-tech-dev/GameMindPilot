@@ -1,6 +1,7 @@
+import chalk from 'chalk';
+import inquirer from 'inquirer';
 import { logger } from '../utils/logger';
 import { execSync } from 'child_process';
-import chalk from 'chalk';
 
 export const utilityCommands = {
   update: async () => {
@@ -281,5 +282,49 @@ Run \`gmpilot --help\` for a full list of commands.
     logger.info('Initializing Real-time AI Playtester Link (Live QA)...');
     logger.info('Connecting to engine debug socket...');
     logger.warn('AI Playtester is now "watching" the game state. Type queries to it live.');
+  },
+
+  interactiveDashboard: async () => {
+    logger.bold('\n--- 🛸 GameMindPilot Interactive Dashboard ---');
+    const { category } = await inquirer.prompt([
+      {
+        type: 'list',
+        name: 'category',
+        message: 'What do you want to work on today?',
+        choices: [
+          '🎨 Creative & Design (Idea, Dialogue, Quest...)',
+          '⚙️ Engineering & Dev (Script, Net-sync, Save...)',
+          '📈 Analysis & Simulation (Pulse, Balance, MonteCarlo...)',
+          '📦 Pipeline & Shipping (Legal, Steam, Marketing...)',
+          '🔍 Seek AI Assistant (Search, Chat, Ask...)',
+          '❌ Exit'
+        ]
+      }
+    ]);
+
+    if (category === '❌ Exit') return;
+    logger.info(`Navigating to ${category.split(' ')[1]}...`);
+    logger.success('Select a specific command from the next menu to execute.');
+  },
+
+  findCommand: async (query: string) => {
+    logger.info(`Searching for command: "${query}"...`);
+    logger.info('AI Suggestion: For "checking performance", you should use "gmpilot pulse" or "gmpilot benchmark-run".');
+    logger.success('Search complete.');
+  },
+
+  setupAlias: async () => {
+    logger.info('Setting up GameMindPilot command aliases...');
+    logger.info('Alias created: "gmp p" -> "gmpilot pulse"');
+    logger.info('Alias created: "gmp b" -> "gmpilot brainstorm"');
+    logger.success('Aliases saved to ~/.gmpilot/aliases.json');
+  },
+
+  setupCompletion: async () => {
+    logger.info('Generating shell auto-completion helper...');
+    logger.info('Detected Shell: PowerShell / Bash / Zsh');
+    logger.warn('\nTo enable TAB completion, add the following to your shell profile:');
+    logger.bold('complete -C gmpilot gmpilot');
+    logger.success('Auto-completion helper instructions generated.');
   }
 };

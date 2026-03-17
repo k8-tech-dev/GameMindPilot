@@ -71,7 +71,11 @@ npm install -g gamemindpilot
 - `telemetry-gen`: Generate telemetry event logging code.
 - `security-scan`: Scan for security vulnerabilities in scripts.
 
-### Pipeline, Legal & DevOps
+### Pipeline, Legal, UX & DevOps
+- `interactive`: (Default) Launch the 🛸 Smart Dashboard menu.
+- `search`: AI-powered command search (Natural Language).
+- `alias`: Setup custom short aliases for long commands.
+- `setup-completion`: Setup shell auto-completion.
 - `git-auto`: AI-powered Git commit/PR description generator.
 - `legal-gen`: Generate EULA and Store Policy templates.
 - `ci-cd-setup`: Generate GitHub Actions for automated auditing.

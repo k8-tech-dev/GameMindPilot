@@ -389,4 +389,25 @@ program
   .description('Start real-time AI playtester interaction')
   .action(utilityCommands.liveQa);
 
-program.parse(process.argv);
+// Expansion Wave 8 (Smart UX)
+program
+  .command('search <query>')
+  .description('AI-powered command search (Natural Language)')
+  .action((query) => utilityCommands.findCommand(query));
+
+program
+  .command('alias')
+  .description('Setup custom short aliases for long commands')
+  .action(utilityCommands.setupAlias);
+
+program
+  .command('setup-completion')
+  .description('Setup shell auto-completion helper')
+  .action(utilityCommands.setupCompletion);
+
+// Default action: Dashboard
+if (!process.argv.slice(2).length || (process.argv[2] && !program.commands.map(c => c.name()).includes(process.argv[2]) && !process.argv[2].startsWith('-'))) {
+  utilityCommands.interactiveDashboard();
+} else {
+  program.parse(process.argv);
+}
