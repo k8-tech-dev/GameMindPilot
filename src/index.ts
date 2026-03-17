@@ -1,0 +1,355 @@
+#!/usr/bin/env node
+import { Command } from 'commander';
+import { logger } from './utils/logger';
+import { configManager } from './utils/config';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
+configManager.init();
+
+const program = new Command();
+
+program
+  .name('gmpilot')
+  .description('GameMindPilot CLI - Your AI Game Development Assistant')
+  .version('1.0.0');
+
+import { loginCommand } from './commands/login';
+import { chatCommand } from './commands/chat';
+import { initCommand } from './commands/init';
+import { utilityCommands } from './commands/utility';
+
+// Core Commands
+program
+  .command('login')
+  .description('Login to GameMindPilot or configure API keys')
+  .action(loginCommand);
+
+program
+  .command('init')
+  .description('Initialize a new GameMindPilot project')
+  .action(initCommand);
+
+program
+  .command('update')
+  .description('Update GameMindPilot CLI to the latest version')
+  .action(utilityCommands.update);
+
+program
+  .command('setup-global')
+  .description('Instructions to install gmpilot globally')
+  .action(utilityCommands.globalInstall);
+
+program
+  .command('chat')
+  .description('Start an interactive AI chat (BYOK supported)')
+  .action(chatCommand);
+
+import { analysisCommands } from './commands/analysis';
+
+// Analysis Features
+program
+  .command('archetypes')
+  .description('Cluster playtesters into behavioral cohorts')
+  .action(analysisCommands.archetypes)
+
+program
+  .command('security-scan')
+  .description('AI-powered DevSecOps vulnerability scan')
+  .action(analysisCommands.securityScan);
+
+program
+  .command('ab-test')
+  .description('Forecast monetization A/B variants')
+  .action(analysisCommands.abTest);
+
+program
+  .command('heap-scan')
+  .description('Visualize memory leaks & hotspots')
+  .action(analysisCommands.heapScan);
+
+program
+  .command('l10n-audit')
+  .description('Audit dialogue localization quality')
+  .action(() => logger.info('Localization audit coming soon...'));
+
+import { simCommands } from './commands/simulation';
+import { assetCommands } from './commands/assets';
+
+// Simulation & Automation
+program
+  .command('montecarlo')
+  .description('10k-player economy simulations')
+  .option('-p, --players <number>', 'Number of players to simulate', '10000')
+  .action((options) => simCommands.montecarlo(parseInt(options.players)));
+
+program
+  .command('pulse')
+  .description('Get high-level project health metrics')
+  .action(simCommands.pulse);
+
+program
+  .command('heal')
+  .description('Autonomous self-healing engine audit')
+  .action(simCommands.heal);
+
+// Assets & Boilerplate
+program
+  .command('script')
+  .description('Generate code for Unity, Unreal, Godot')
+  .option('-e, --engine <type>', 'Target engine (unity, unreal, godot)', 'unity')
+  .action((options) => assetCommands.script(options.engine));
+
+program
+  .command('blueprint')
+  .description('Generate complete game system boilerplate')
+  .action(assetCommands.blueprint);
+
+program
+  .command('item')
+  .alias('enemy')
+  .description('Procedural asset generation (item/enemy)')
+  .action(assetCommands.item);
+
+import { designCommands } from './commands/design';
+
+// Game Design
+program
+  .command('idea')
+  .description('Generate unique game concepts')
+  .action(designCommands.idea);
+
+program
+  .command('dialogue')
+  .description('Generate NPC dialogues and choices')
+  .option('-c, --context <text>', 'Specific context for the dialogue')
+  .action((options) => designCommands.dialogue(options.context));
+
+program
+  .command('quest')
+  .description('Generate side quests and objectives')
+  .action(designCommands.quest);
+
+program
+  .command('level')
+  .description('Generate level layouts and puzzles')
+  .option('-t, --theme <type>', 'Level theme (e.g., sci-fi, jungle, dungeon)', 'dungeon')
+  .action((options) => designCommands.level(options.theme));
+
+import { advancedCommands } from './commands/advanced';
+
+// Advanced Tools
+program
+  .command('world-builder')
+  .description('AI-powered World Builder framework')
+  .action(advancedCommands.worldBuilder);
+
+program
+  .command('quest-graph')
+  .description('Quest dependency and branching visualizer')
+  .action(advancedCommands.questGraph);
+
+program
+  .command('behavior-trees')
+  .description('AI behavior tree architect')
+  .action(advancedCommands.behaviorTrees);
+
+program
+  .command('storyboarder')
+  .description('Cinematic scene storyboarder')
+  .action(advancedCommands.storyboarder);
+
+// Analytics & Reports
+program
+  .command('heatmaps')
+  .description('Visualize player death/action heatmaps')
+  .action(() => logger.info('Heatmap visualization requires integrated telemetry data...'));
+
+program
+  .command('playtest-reports')
+  .description('Generate automated playtest summaries')
+  .action(() => logger.info('Analyzing playtest data logs...'));
+
+program
+  .command('docs-gen')
+  .description('Generate project documentation and README')
+  .action(utilityCommands.docsGen);
+
+// Expansion Pack 2 & 3
+program
+  .command('shader-gen')
+  .description('Generate HLSL/GLSL shader templates')
+  .action(utilityCommands.shaderGen);
+
+program
+  .command('sprite-anim')
+  .description('Generate sprite animation metadata')
+  .action(utilityCommands.spriteAnim);
+
+program
+  .command('save-logic')
+  .description('Generate save/load system boilerplate')
+  .action(utilityCommands.saveLogic);
+
+program
+  .command('path-audit')
+  .description('Analyze navmesh and pathfinding hotspots')
+  .action(utilityCommands.pathAudit);
+
+program
+  .command('l10n-sync')
+  .description('AI-powered localization syncing')
+  .action(utilityCommands.l10nSync);
+
+program
+  .command('sound-gen')
+  .description('Generate sound effect prompts and descriptions')
+  .action(utilityCommands.soundGen);
+
+program
+  .command('voice-script')
+  .description('Generate NPC voice-over scripts with emotional tags')
+  .action(utilityCommands.voiceScript);
+
+program
+  .command('balance-check')
+  .description('AI-powered game balance analysis')
+  .action(utilityCommands.balanceCheck);
+
+program
+  .command('marketing-kit')
+  .description('Generate marketing kit (App Store, Social Media)')
+  .action(utilityCommands.marketingKit);
+
+program
+  .command('collision-audit')
+  .description('Audit collision layer matrix and physics layers')
+  .action(utilityCommands.collisionAudit);
+
+program
+  .command('vfx-gen')
+  .description('Generate particle system parameters')
+  .action(utilityCommands.vfxGen);
+
+program
+  .command('ui-layout')
+  .description('AI-generated UI layout prototypes')
+  .action(utilityCommands.uiLayout);
+
+program
+  .command('steam-sync')
+  .description('Sync project metadata with Steamworks (Simulation)')
+  .action(utilityCommands.steamSync);
+
+program
+  .command('discord-gen')
+  .description('Generate Discord bot boilerplate for testing')
+  .action(utilityCommands.discordGen);
+
+program
+  .command('telemetry-gen')
+  .description('Generate telemetry event logging code')
+  .action(utilityCommands.telemetryGen);
+
+program
+  .command('cutscene-gen')
+  .description('Generate cinematic cutscene scripts and timelines')
+  .action(utilityCommands.cutsceneGen);
+
+program
+  .command('mobile-audit')
+  .description('Mobile-specific performance audit')
+  .action(utilityCommands.mobileAudit);
+
+program
+  .command('lod-audit')
+  .description('Asset LOD verification and audit')
+  .action(utilityCommands.lodAudit);
+
+// Expansion Wave 5
+program
+  .command('add-extension [package]')
+  .description('Install a community GameMindPilot extension')
+  .action((pkg) => utilityCommands.addExtension(pkg));
+
+program
+  .command('brainstorm <prompt>')
+  .description('Multi-agent brainstorming session')
+  .option('-a, --agents <list>', 'Comma-separated personas', 'Designer, Economist')
+  .action((prompt, options) => utilityCommands.brainstorm(prompt, options.agents));
+
+program
+  .command('monitor')
+  .description('Launch TUI Project Monitor Dashboard')
+  .action(utilityCommands.monitor);
+
+program
+  .command('scan-project')
+  .description('Index project for codebase-aware AI queries')
+  .action(utilityCommands.scanProject);
+
+program
+  .command('ask <query>')
+  .description('Ask the AI about your specific project code')
+  .action((query) => utilityCommands.ask(query));
+
+program
+  .command('live-sync')
+  .description('Start Engine Bridge for live editor connectivity')
+  .action(utilityCommands.liveSync);
+
+program
+  .command('run-test-bots')
+  .description('Launch automated playtest bots')
+  .option('-c, --count <number>', 'Number of bots to run', '10')
+  .action((options) => utilityCommands.runTestBots(parseInt(options.count)));
+
+program
+  .command('l10n-review')
+  .description('Collaborative AI translation review bridge')
+  .action(utilityCommands.l10nReview);
+
+program
+  .command('generate-sprite <description>')
+  .description('AI-powered frame-by-frame sprite generation')
+  .action((desc) => utilityCommands.generateSprite(desc));
+
+// Expansion Wave 6
+program
+  .command('legal-gen')
+  .description('Generate EULA and Store Policy templates')
+  .action(utilityCommands.legalGen);
+
+program
+  .command('net-sync')
+  .description('Generate multiplayer synchronization boilerplate')
+  .option('-p, --players <number>', 'Maximum players', '2')
+  .action((options) => utilityCommands.netSync(parseInt(options.players)));
+
+program
+  .command('asset-bundler')
+  .description('Analyze assets for bundling optimization')
+  .action(utilityCommands.assetBundler);
+
+program
+  .command('collider-gen')
+  .description('Generate optimized physics colliders')
+  .action(utilityCommands.colliderGen);
+
+program
+  .command('git-auto [type]')
+  .description('AI-powered Git commit/PR generation')
+  .action((type) => utilityCommands.gitAuto(type || 'commit'));
+
+program
+  .command('ui-theme-gen')
+  .description('Generate UI Design System tokens')
+  .option('-s, --style <theme>', 'UI theme (e.g., modern, retro, cyberpunk)', 'modern')
+  .action((options) => utilityCommands.uiThemeGen(options.style));
+
+program
+  .command('mobile-power-scan')
+  .description('Mobile battery and thermal audit')
+  .action(utilityCommands.mobilePowerScan);
+
+program.parse(process.argv);
