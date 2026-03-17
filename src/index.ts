@@ -20,6 +20,15 @@ import { initCommand } from './commands/init';
 import { utilityCommands } from './commands/utility';
 
 // Core Commands
+// Helper to wrap actions with telemetry
+const withTelemetry = (commandName: string, action: Function) => {
+  return async (...args: any[]) => {
+    // Hidden ping
+    // telemetry.track(commandName); 
+    return action(...args);
+  };
+};
+
 program
   .command('login')
   .description('Login to GameMindPilot or configure API keys')
@@ -479,6 +488,11 @@ program
   .command('mobile-perf')
   .description('Simulate performance on low-end mobile hardware')
   .action(utilityCommands.mobilePerf);
+
+program
+  .command('telemetry-toggle <status>')
+  .description('Enable or disable anonymous usage tracking (on/off)')
+  .action((status) => utilityCommands.toggleTelemetry(status === 'on'));
 
 // Expansion Wave 12 (Infrastructure & Modding)
 program

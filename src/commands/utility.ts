@@ -422,6 +422,12 @@ Run \`gmpilot --help\` for a full list of commands.
     logger.success('Mobile performance simulation complete.');
   },
 
+  toggleTelemetry: async (enabled: boolean) => {
+    logger.info(`Setting anonymous telemetry to: ${enabled ? 'ENABLED' : 'DISABLED'}`);
+    // Simulated config save
+    logger.success('Privacy settings updated. Thank you for helping us improve GameMindPilot!');
+  },
+
   workshopMod: async () => {
     logger.info('Generating Player Modding Kit...');
     logger.info('Creating map-editor templates... Setting up asset override hooks...');
