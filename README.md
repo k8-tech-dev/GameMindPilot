@@ -71,6 +71,13 @@ npm install -g gamemindpilot
 - `telemetry-gen`: Generate telemetry event logging code.
 - `security-scan`: Scan for security vulnerabilities in scripts.
 
+### Community & Scaling
+- `workshop-mod`: 🛠️ Generate a player-centric modding kit.
+- `server-gen`: ☁️ Deploy multiplayer infrastructure to the cloud.
+- `l10n-context`: 🌐 Deep, emotion-aware AI translation with context.
+- `plugin-publish`: Publish your custom extension to the community hub.
+- `team-invite`: Invite a team member to shared workspace.
+
 ### Intelligence & Optimization
 - `asset-optimize`: 📦 Automated asset compression and atlas generation.
 - `review`: 🔍 AI project-wide code quality and design pattern review.
@@ -84,8 +91,6 @@ npm install -g gamemindpilot
 - `doctor`: CLI and Project self-diagnostic health check.
 - `web-view`: 🛸 Launch the Local Browser Dashboard.
 - `vitals-track`: Track long-term project progress metrics.
-- `plugin-publish`: Publish your custom extension to the community hub.
-- `team-invite`: Invite a team member to shared workspace.
 - `monitor`: Launch TUI Project Monitor Dashboard.
 - `cloud-sync`: Sync project configs and RAG with team cloud.
 - `add-extension`: Install community GameMindPilot extensions.

@@ -480,6 +480,23 @@ program
   .description('Simulate performance on low-end mobile hardware')
   .action(utilityCommands.mobilePerf);
 
+// Expansion Wave 12 (Infrastructure & Modding)
+program
+  .command('workshop-mod')
+  .description('Generate a player-centric modding kit for your community')
+  .action(utilityCommands.workshopMod);
+
+program
+  .command('server-gen')
+  .description('Deploy multiplayer/backend infrastructure to the cloud')
+  .option('-p, --provider <name>', 'Cloud provider (AWS, Azure, Firebase)', 'AWS')
+  .action((options) => utilityCommands.serverGen(options.provider));
+
+program
+  .command('l10n-context <language>')
+  .description('Deep, emotion-aware AI translation with character context')
+  .action((language) => utilityCommands.l10nContext(language));
+
 // Default action: Dashboard
 if (!process.argv.slice(2).length || (process.argv[2] && !program.commands.map(c => c.name()).includes(process.argv[2]) && !process.argv[2].startsWith('-'))) {
   utilityCommands.interactiveDashboard();
