@@ -1,6 +1,6 @@
 {
   "name": "gamemindpilot",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "AI-powered CLI for game developers - Design, Asset Gen, Analysis & Optimization",
   "main": "dist/index.js",
   "bin": {
