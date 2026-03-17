@@ -499,6 +499,16 @@ program
   .description('Set your private Analytics API Key (e.g., from PostHog)')
   .action((key) => utilityCommands.setAnalyticsKey(key));
 
+program
+  .command('start')
+  .description('Launch the Guided Onboarding Flow (The Hero\'s Journey)')
+  .action(utilityCommands.start);
+
+program
+  .command('demo')
+  .description('Showcase high-quality AI outputs from Hero Features')
+  .action(utilityCommands.demo);
+
 // Expansion Wave 12 (Infrastructure & Modding)
 program
   .command('workshop-mod')

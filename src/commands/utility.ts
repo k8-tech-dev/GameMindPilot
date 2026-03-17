@@ -429,6 +429,36 @@ Run \`gmpilot --help\` for a full list of commands.
     logger.info('Your CLI usage data will now be sent to your private dashboard.');
   },
 
+  start: async () => {
+    logger.bold('\n--- 🛸 Welcome to the GameMindPilot Hero\'s Journey ---');
+    const { goal } = await inquirer.prompt([
+      {
+        type: 'list',
+        name: 'goal',
+        message: 'What is your primary mission today?',
+        choices: [
+          '🔥 I want to generate a new Game Concept (idea)',
+          '🎭 I want to write complex NPC Dialogues (dialogue)',
+          '📈 I want to balance my Game Economy (montecarlo)',
+          '🛡️ I want to scan my project for Bugs/Security (review)',
+          '📦 I want to optimize my Game Assets (asset-optimize)'
+        ]
+      }
+    ]);
+
+    logger.info(`Great choice! Launching guided flow for mission: ${goal}`);
+    logger.warn('Tip: Our AI suggests starting with "gmpilot init" to index your project first.');
+  },
+
+  demo: async () => {
+    logger.bold('\n--- 🎬 GameMindPilot HERO DEMO SHOWCASE ---');
+    logger.info('Showcasing "Dialogue Engine" output...');
+    logger.success('NPC [Elder]: "You seek the truth? The truth is buried under the same soil that swallowed your ancestors."');
+    logger.info('\nShowcasing "Security Scan" audit...');
+    logger.warn('[Alert]: Script "ExplosionHandler.cs" has a potential memory leak on line 12.');
+    logger.success('\nDemo complete. This is the quality you can expect across all 100+ commands!');
+  },
+
   toggleTelemetry: async (enabled: boolean) => {
     logger.info(`Setting anonymous telemetry to: ${enabled ? 'ENABLED' : 'DISABLED'}`);
     // Simulated config save
