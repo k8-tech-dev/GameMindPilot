@@ -453,6 +453,33 @@ program
   .description('CLI and Project self-diagnostic health check')
   .action(utilityCommands.doctor);
 
+// Expansion Wave 11 (Intelligence & Optimization)
+program
+  .command('asset-optimize')
+  .description('Automated compression and atlas generation for project assets')
+  .action(utilityCommands.assetOptimize);
+
+program
+  .command('review')
+  .description('AI project-wide code quality and design pattern review')
+  .action(utilityCommands.review);
+
+program
+  .command('dev-stream')
+  .description('Start live coding assistance stream')
+  .action(utilityCommands.devStream);
+
+program
+  .command('engine-setup')
+  .description('Automate project settings for specific genres or platforms')
+  .option('-g, --genre <type>', 'Game genre (RPG, FPS, Racing)', 'RPG')
+  .action((options) => utilityCommands.engineSetup(options.genre));
+
+program
+  .command('mobile-perf')
+  .description('Simulate performance on low-end mobile hardware')
+  .action(utilityCommands.mobilePerf);
+
 // Default action: Dashboard
 if (!process.argv.slice(2).length || (process.argv[2] && !program.commands.map(c => c.name()).includes(process.argv[2]) && !process.argv[2].startsWith('-'))) {
   utilityCommands.interactiveDashboard();

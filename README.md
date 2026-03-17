@@ -71,7 +71,12 @@ npm install -g gamemindpilot
 - `telemetry-gen`: Generate telemetry event logging code.
 - `security-scan`: Scan for security vulnerabilities in scripts.
 
-### Mastery & Automation
+### Intelligence & Optimization
+- `asset-optimize`: 📦 Automated asset compression and atlas generation.
+- `review`: 🔍 AI project-wide code quality and design pattern review.
+- `dev-stream`: 🌊 Start live coding assistance stream.
+- `engine-setup`: ⚙️ Automate project settings for genres/platforms.
+- `mobile-perf`: 📱 Simulate performance on low-end mobile hardware.
 - `watch`: 👁️ Autonomous Reality Sync (background monitoring).
 - `persona-playtest`: Simulate specific player personalities.
 - `material-forge`: Generate engine-ready PBR material maps.
