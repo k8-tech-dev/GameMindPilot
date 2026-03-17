@@ -4,22 +4,22 @@ import { logger } from '../utils/logger';
 
 export const simCommands = {
   montecarlo: async (players: number = 10000) => {
-    const spinner = ora(`Running ${players}-player Economy Stress Test...`).start();
+    const spinner = ora(`Running ${players}-player Economy Stress Test (Mastery Mode)...`).start();
     try {
       const response = await AIService.chat(`
-        Act as a Game Economist. Run a Monte Carlo simulation for a virtual economy with ${players} players.
+        Act as a Professional Game Economist. Run a high-fidelity Monte Carlo simulation for a virtual economy with ${players} players.
         Scenarios to analyze:
-        1. **Hyper-Inflation**: What happens if the primary "Gold" sink is removed?
-        2. **Whale vs F2P**: Analyze the impact of premium currency injection on the auction house.
-        3. **Resource Scarcity**: Predicted outcome if "Wood" production drops by 30%.
-        Include:
-        - **Source-Sink Ratio**: Current balance assessment.
-        - **Gini Coefficient Forecast**: Measure of wealth inequality in the simulation.
-        - **Collapse Probability**: % chance of economy failure in 6 months.
-        Provide actionable mitigation strategies.
+        1. **Hyper-Inflation Spike**: Impact of removing a primary "Gold" sink on the auction house.
+        2. **Whale vs F2P Dynamics**: Predicted price fluctuations of "Premium Gacha Items" over 6 months.
+        3. **Resource Scarcity**: Outcome if "Wood/Iron" production drops by 40% due to a world event.
+        Include detailed metrics:
+        - **Source-Sink Ratio**: Precise balance assessment.
+        - **Gini Coefficient Forecast**: Quantify wealth inequality.
+        - **Collapse Probability**: % chance of absolute economic failure.
+        - **Mitigation Strategy**: Specific algorithmic fixes (e.g., Dynamic Taxing).
       `);
       spinner.stop();
-      logger.bold(`\n--- 📈 High-Fidelity Economy Simulation (${players} Players) ---`);
+      logger.bold(`\n--- 📈 High-Fidelity Economy Simulation (Mastery Level) ---`);
       console.log(response);
     } catch (err: any) {
       spinner.stop();

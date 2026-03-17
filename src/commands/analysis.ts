@@ -17,22 +17,23 @@ export const analysisCommands = {
   },
 
   securityScan: async () => {
-    const spinner = ora('Performing Deep AI Netcode & Security Audit...').start();
+    const spinner = ora('Performing Deep AI Netcode & Security Audit (Mastery Mode)...').start();
     try {
       const response = await AIService.chat(`
-        Act as a Professional Game Security Researcher (DevSecOps). Simulate a vulnerability audit for a multiplayer game.
-        Audit Scope:
-        1. **Netcode Vulnerabilities**: Buffer overflows in packet deserialization, RPC spoofing.
-        2. **Memory Injections**: Potential for DLL injection or memory manipulation on the client.
-        3. **Database Integrity**: Risk of SQLi in login or matchmaking services.
-        Report Format:
-        - **Threat Level**: [Low/Medium/High/Critical]
-        - **Description**: Technical details of the vulnerability.
-        - **Exploit Vector**: How would a malicious player exploit this?
-        - **Remediation**: Step-by-step fix for the developer.
+        Act as a Professional Game Security Lead (Senior DevSecOps). 
+        Perform a comprehensive vulnerability audit for a modern multiplayer project.
+        Focus Areas:
+        1. **Client-Side Vulnerabilities**: Potential for DLL injection, memory manipulation, and speed-hacks.
+        2. **RPC & Netcode**: Logic flaws in packet deserialization and unauthorized RPC calling.
+        3. **Backend Integrity**: Race conditions in matchmaking and inventory state transitions.
+        Output Format:
+        - **Threat Level**: [Low/Medium/High/Critical/Immediate-Action]
+        - **Technical Description**: Root cause analysis of the vulnerability.
+        - **Exploit Vector**: Concrete scenario of how a "Cheater" would break the game.
+        - **Architectural Fix**: Step-by-step remediation (Code snippets or logic changes).
       `);
       spinner.stop();
-      logger.bold('\n--- 🛡️ Advanced Game Security & Netcode Audit ---');
+      logger.bold('\n--- 🛡️ Advanced Game Security & Netcode Audit (Mastery Level) ---');
       console.log(response);
     } catch (err: any) {
       spinner.stop();
