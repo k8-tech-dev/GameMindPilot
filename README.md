@@ -1,17 +1,22 @@
-# 🛸 GameMindPilot CLI v2.0.0 - Ultimate Edition
+# 🛸 GameMindPilot CLI v2.6.0 - The Hero's Journey
 
 **The World's Most Powerful AI Command-Line Suite for Game Developers.**  
-GameMindPilot is a massive, AI-driven toolkit encompassing **100+ commands** for every stage of game development—from the first spark of an idea to professional store deployment. From procedural concept generation to performance auditing and economy simulations, gmpilot brings the power of state-of-the-art AI (Gemini, OpenAI, Claude, Ollama) directly to your terminal.
+GameMindPilot is a massive, AI-driven toolkit encompassing **100+ commands** for every stage of game development. From procedural concept generation to performance auditing and economy simulations, gmpilot brings the power of state-of-the-art AI directly to your terminal.
 
-## 🚀 Key Features
+## 🚀 First Experience: The Hero's Journey
+Don't be overwhelmed by 100+ commands. Start here:
+```bash
+gmpilot start
+```
+This guided flow will help you decide what to build and how to use the CLI effectively.
 
-- **BYOK (Bring Your Own Key):** Connect directly to Google Gemini, OpenAI, Claude, or local Ollama instances.
-- **Dynamic Model Selection:** Automatically fetch and select from supported models for each provider.
-- **Game Design & Narrative:** Generate concepts, dialogue trees, quests, and level layouts.
-- **Advanced Simulation:** Monte Carlo economy simulations and behavioral playtester cohort analysis.
-- **Performance & Analysis:** Identify memory leaks, optimize mesh complexity, and audit localization.
-- **DevSecOps:** AI-powered security vulnerability scanning for game code.
-- **Live Chat:** Interactive AI terminal for rapid prototyping and brainstorming.
+## 🔥 The Unbeatable Hero Features
+While we have a massive toolkit, these 5 features are the absolute best in the industry:
+1. **Idea Engine (`idea`)**: Neural game concept generator with deep narrative branching.
+2. **Dialogue Matrix (`dialogue`)**: Emotional RPG dialogue generator with impact analysis.
+3. **Economy Simulation (`montecarlo`)**: 10k-player stress test for virtual economies.
+4. **Code Quality Review (`review`)**: AI-driven design pattern and logic auditor.
+5. **Security Scan (`security-scan`)**: Deep vulnerability and script performance audit.
 
 ## 📦 Installation
 
