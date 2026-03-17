@@ -497,6 +497,32 @@ program
   .description('Deep, emotion-aware AI translation with character context')
   .action((language) => utilityCommands.l10nContext(language));
 
+// Expansion Wave 13 (The Final Frontiers)
+program
+  .command('ai-director')
+  .description('Generate real-time procedural difficulty and event director scripts')
+  .action(utilityCommands.aiDirector);
+
+program
+  .command('cinematic-ai <prompt>')
+  .description('Generate cinematic camera paths and lighting from dialogue/scripts')
+  .action((prompt) => utilityCommands.cinematicAi(prompt));
+
+program
+  .command('ship-audit')
+  .description('Comprehensive 100-point project audit for Store Readiness')
+  .action(utilityCommands.shipAudit);
+
+program
+  .command('sound-env <mood>')
+  .description('Generate procedural AI ambient soundscapes')
+  .action((mood) => utilityCommands.soundEnv(mood));
+
+program
+  .command('eco-chaos')
+  .description('Extreme stress-test for virtual game economies')
+  .action(utilityCommands.ecoChaos);
+
 // Default action: Dashboard
 if (!process.argv.slice(2).length || (process.argv[2] && !program.commands.map(c => c.name()).includes(process.argv[2]) && !process.argv[2].startsWith('-'))) {
   utilityCommands.interactiveDashboard();

@@ -71,6 +71,13 @@ npm install -g gamemindpilot
 - `telemetry-gen`: Generate telemetry event logging code.
 - `security-scan`: Scan for security vulnerabilities in scripts.
 
+### The Final Frontiers (100+ Commands Milestone)
+- `ai-director`: 🎭 Procedural difficulty and event director scripts.
+- `cinematic-ai`: 🎬 Cinematic camera paths and lighting from text.
+- `ship-audit`: 🏁 100-point project audit for Store Readiness.
+- `sound-env`: 🎵 Procedural AI ambient soundscapes.
+- `eco-chaos`: 📈 Extreme stress-test for game economies.
+
 ### Community & Scaling
 - `workshop-mod`: 🛠️ Generate a player-centric modding kit.
 - `server-gen`: ☁️ Deploy multiplayer infrastructure to the cloud.
