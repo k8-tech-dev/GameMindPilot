@@ -426,6 +426,33 @@ program
   .description('Invite a team member to your shared cloud workspace')
   .action((email) => utilityCommands.teamInvite(email));
 
+// Expansion Wave 10 (Deep Automation & Mastery)
+program
+  .command('watch')
+  .description('Autonomous Reality Sync (background file monitoring)')
+  .action(utilityCommands.watch);
+
+program
+  .command('persona-playtest')
+  .description('Simulate specific player personalities (e.g., speedrunner)')
+  .option('-t, --type <persona>', 'Persona type (speedrunner, completionist, casual)', 'balanced')
+  .action((options) => utilityCommands.personaPlaytest(options.type));
+
+program
+  .command('material-forge <prompt>')
+  .description('Generate engine-ready PBR material maps from text')
+  .action((prompt) => utilityCommands.materialForge(prompt));
+
+program
+  .command('ensemble-brain <prompt>')
+  .description('Orchestrate multi-model AI brainstorming (Gemini + GPT + Claude)')
+  .action((prompt) => utilityCommands.ensembleBrain(prompt));
+
+program
+  .command('doctor')
+  .description('CLI and Project self-diagnostic health check')
+  .action(utilityCommands.doctor);
+
 // Default action: Dashboard
 if (!process.argv.slice(2).length || (process.argv[2] && !program.commands.map(c => c.name()).includes(process.argv[2]) && !process.argv[2].startsWith('-'))) {
   utilityCommands.interactiveDashboard();

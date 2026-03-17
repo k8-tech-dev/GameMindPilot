@@ -71,7 +71,12 @@ npm install -g gamemindpilot
 - `telemetry-gen`: Generate telemetry event logging code.
 - `security-scan`: Scan for security vulnerabilities in scripts.
 
-### Ecosystem & Visuals
+### Mastery & Automation
+- `watch`: 👁️ Autonomous Reality Sync (background monitoring).
+- `persona-playtest`: Simulate specific player personalities.
+- `material-forge`: Generate engine-ready PBR material maps.
+- `ensemble-brain`: Orchestrate multi-model AI brainstorming.
+- `doctor`: CLI and Project self-diagnostic health check.
 - `web-view`: 🛸 Launch the Local Browser Dashboard.
 - `vitals-track`: Track long-term project progress metrics.
 - `plugin-publish`: Publish your custom extension to the community hub.
