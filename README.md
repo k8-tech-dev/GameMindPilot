@@ -1,8 +1,7 @@
-# 🎮 GameMindPilot (gmpilot)
+# 🛸 GameMindPilot CLI v2.0.0 - Ultimate Edition
 
-**AI-powered CLI Companion for Game Developers & Designers.**
-
-GameMindPilot is a comprehensive command-line tool designed to accelerate game development workflows. From procedural concept generation to performance auditing and economy simulations, gmpilot brings the power of state-of-the-art AI (Gemini, OpenAI, Claude, Ollama) directly to your terminal.
+**The World's Most Powerful AI Command-Line Suite for Game Developers.**  
+GameMindPilot is a massive, AI-driven toolkit encompassing **100+ commands** for every stage of game development—from the first spark of an idea to professional store deployment. From procedural concept generation to performance auditing and economy simulations, gmpilot brings the power of state-of-the-art AI (Gemini, OpenAI, Claude, Ollama) directly to your terminal.
 
 ## 🚀 Key Features
 
