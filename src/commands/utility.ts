@@ -1,6 +1,7 @@
 import chalk from 'chalk';
 import inquirer from 'inquirer';
 import { logger } from '../utils/logger';
+import { configManager } from '../utils/config';
 import { execSync } from 'child_process';
 
 export const utilityCommands = {
@@ -420,6 +421,12 @@ Run \`gmpilot --help\` for a full list of commands.
     logger.info('Emulating Snapdragon 855 environment... Tracking thermal throttling...');
     logger.warn('[Warning]: Draw calls exceed mobile threshold (85). Suggestion: Use asset-optimize.');
     logger.success('Mobile performance simulation complete.');
+  },
+
+  setAnalyticsKey: async (key: string) => {
+    configManager.set({ analyticsKey: key });
+    logger.success('Analytics API Key updated successfully!');
+    logger.info('Your CLI usage data will now be sent to your private dashboard.');
   },
 
   toggleTelemetry: async (enabled: boolean) => {

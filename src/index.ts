@@ -494,6 +494,11 @@ program
   .description('Enable or disable anonymous usage tracking (on/off)')
   .action((status) => utilityCommands.toggleTelemetry(status === 'on'));
 
+program
+  .command('setup-analytics <key>')
+  .description('Set your private Analytics API Key (e.g., from PostHog)')
+  .action((key) => utilityCommands.setAnalyticsKey(key));
+
 // Expansion Wave 12 (Infrastructure & Modding)
 program
   .command('workshop-mod')
