@@ -17,11 +17,22 @@ export const analysisCommands = {
   },
 
   securityScan: async () => {
-    const spinner = ora('Performing AI-powered DevSecOps scan...').start();
+    const spinner = ora('Performing Deep AI Netcode & Security Audit...').start();
     try {
-      const response = await AIService.chat('Simulate a security vulnerability report for a game server using AI. Include potential SQL injections, buffer overflows in netcode, and mitigation strategies.');
+      const response = await AIService.chat(`
+        Act as a Professional Game Security Researcher (DevSecOps). Simulate a vulnerability audit for a multiplayer game.
+        Audit Scope:
+        1. **Netcode Vulnerabilities**: Buffer overflows in packet deserialization, RPC spoofing.
+        2. **Memory Injections**: Potential for DLL injection or memory manipulation on the client.
+        3. **Database Integrity**: Risk of SQLi in login or matchmaking services.
+        Report Format:
+        - **Threat Level**: [Low/Medium/High/Critical]
+        - **Description**: Technical details of the vulnerability.
+        - **Exploit Vector**: How would a malicious player exploit this?
+        - **Remediation**: Step-by-step fix for the developer.
+      `);
       spinner.stop();
-      logger.bold('\n--- DevSecOps Security Scan ---');
+      logger.bold('\n--- 🛡️ Advanced Game Security & Netcode Audit ---');
       console.log(response);
     } catch (err: any) {
       spinner.stop();

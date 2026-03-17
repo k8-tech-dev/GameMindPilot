@@ -4,11 +4,22 @@ import { logger } from '../utils/logger';
 
 export const simCommands = {
   montecarlo: async (players: number = 10000) => {
-    const spinner = ora(`Running ${players}-player economy simulation...`).start();
+    const spinner = ora(`Running ${players}-player Economy Stress Test...`).start();
     try {
-      const response = await AIService.chat(`Run a Monte Carlo simulation for a game economy with ${players} players. Analyze currency inflation, source-sink balance, and predict potential economy collapse points over a 12-month period.`);
+      const response = await AIService.chat(`
+        Act as a Game Economist. Run a Monte Carlo simulation for a virtual economy with ${players} players.
+        Scenarios to analyze:
+        1. **Hyper-Inflation**: What happens if the primary "Gold" sink is removed?
+        2. **Whale vs F2P**: Analyze the impact of premium currency injection on the auction house.
+        3. **Resource Scarcity**: Predicted outcome if "Wood" production drops by 30%.
+        Include:
+        - **Source-Sink Ratio**: Current balance assessment.
+        - **Gini Coefficient Forecast**: Measure of wealth inequality in the simulation.
+        - **Collapse Probability**: % chance of economy failure in 6 months.
+        Provide actionable mitigation strategies.
+      `);
       spinner.stop();
-      logger.bold(`\n--- Monte Carlo Simulation (${players} Players) ---`);
+      logger.bold(`\n--- 📈 High-Fidelity Economy Simulation (${players} Players) ---`);
       console.log(response);
     } catch (err: any) {
       spinner.stop();
