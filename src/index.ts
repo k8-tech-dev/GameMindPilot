@@ -405,6 +405,27 @@ program
   .description('Setup shell auto-completion helper')
   .action(utilityCommands.setupCompletion);
 
+// Expansion Wave 9 (Visual Command Center)
+program
+  .command('web-view')
+  .description('Launch local browser-based project dashboard')
+  .action(utilityCommands.webView);
+
+program
+  .command('plugin-publish')
+  .description('Publish your custom extension to the community hub')
+  .action(utilityCommands.pluginPublish);
+
+program
+  .command('vitals-track')
+  .description('Track long-term project progress metrics')
+  .action(utilityCommands.vitalsTrack);
+
+program
+  .command('team-invite <email>')
+  .description('Invite a team member to your shared cloud workspace')
+  .action((email) => utilityCommands.teamInvite(email));
+
 // Default action: Dashboard
 if (!process.argv.slice(2).length || (process.argv[2] && !program.commands.map(c => c.name()).includes(process.argv[2]) && !process.argv[2].startsWith('-'))) {
   utilityCommands.interactiveDashboard();

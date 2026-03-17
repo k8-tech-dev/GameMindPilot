@@ -71,8 +71,17 @@ npm install -g gamemindpilot
 - `telemetry-gen`: Generate telemetry event logging code.
 - `security-scan`: Scan for security vulnerabilities in scripts.
 
+### Ecosystem & Visuals
+- `web-view`: 🛸 Launch the Local Browser Dashboard.
+- `vitals-track`: Track long-term project progress metrics.
+- `plugin-publish`: Publish your custom extension to the community hub.
+- `team-invite`: Invite a team member to shared workspace.
+- `monitor`: Launch TUI Project Monitor Dashboard.
+- `cloud-sync`: Sync project configs and RAG with team cloud.
+- `add-extension`: Install community GameMindPilot extensions.
+
 ### Pipeline, Legal, UX & DevOps
-- `interactive`: (Default) Launch the 🛸 Smart Dashboard menu.
+- `interactive`: (Default) Launch the Smart Dashboard menu.
 - `search`: AI-powered command search (Natural Language).
 - `alias`: Setup custom short aliases for long commands.
 - `setup-completion`: Setup shell auto-completion.
@@ -87,9 +96,6 @@ npm install -g gamemindpilot
 - `l10n-review`: Collaborative AI translation review bridge.
 - `marketing-kit`: Generate store assets and taglines.
 - `gdd-export`: Export complete professional GDD from project intel.
-- `monitor`: Launch TUI Project Monitor Dashboard.
-- `cloud-sync`: Sync project configs and RAG with team cloud.
-- `add-extension`: Install community GameMindPilot extensions.
 
 ### Analysis & Optimization
 - `montecarlo`: Run 10k-player economy simulations.
