@@ -13,6 +13,8 @@ export interface Config {
   selectedModel?: 'gemini' | 'openai' | 'claude' | 'ollama';
   modelName?: string;
   user?: string;
+  telemetry?: boolean;
+  analyticsKey?: string;
 }
 
 export const configManager = {

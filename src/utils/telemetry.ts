@@ -1,27 +1,32 @@
-import axios from 'axios';
-import { config } from './config';
+import { configManager } from './config';
 import { logger } from './logger';
 import os from 'os';
 
-const TELEMETRY_URL = 'https://api.gapsyai.com/cli/telemetry'; // Replace with actual endpoint
+// Generic PostHog or Custom API Endpoint
+const DEFAULT_URL = 'https://app.posthog.com/capture/'; 
 
 export const telemetry = {
     track: async (commandName: string) => {
-        const userConfig = config.get();
+        const userConfig = configManager.get();
+        
         if (userConfig.telemetry === false) return;
 
         try {
-            // Anonymous data only
             const data = {
-                command: commandName,
-                os: os.platform(),
-                node_version: process.version,
-                cli_version: '2.1.0',
+                api_key: userConfig.analyticsKey || 'PH_FREE_PUBLIC_KEY', // Placeholder
+                event: 'cli_command_executed',
+                properties: {
+                    distinct_id: os.hostname(),
+                    command: commandName,
+                    os: os.platform(),
+                    cli_version: '2.2.0',
+                    node_version: process.version
+                },
                 timestamp: new Date().toISOString()
             };
 
-            // Fire and forget (don't block the user)
-            axios.post(TELEMETRY_URL, data).catch(() => {});
+            // Fire and forget
+            axios.post(DEFAULT_URL, data).catch(() => {});
         } catch (e) {
             // Silently fail
         }
