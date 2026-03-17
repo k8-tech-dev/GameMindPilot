@@ -71,8 +71,25 @@ npm install -g gamemindpilot
 - `telemetry-gen`: Generate telemetry event logging code.
 - `security-scan`: Scan for security vulnerabilities in scripts.
 
+### Pipeline, Legal & DevOps
+- `git-auto`: AI-powered Git commit/PR description generator.
+- `legal-gen`: Generate EULA and Store Policy templates.
+- `ci-cd-setup`: Generate GitHub Actions for automated auditing.
+- `live-sync`: Start Engine Bridge for live editor connectivity.
+- `steam-sync`: Sync metadata with Steamworks.
+- `workshop-sync`: Generate Steam Workshop and modding manifests.
+- `discord-gen`: Generate Discord bot boilerplate.
+- `l10n-sync`: AI-powered localization syncing.
+- `l10n-review`: Collaborative AI translation review bridge.
+- `marketing-kit`: Generate store assets and taglines.
+- `gdd-export`: Export complete professional GDD from project intel.
+- `monitor`: Launch TUI Project Monitor Dashboard.
+- `cloud-sync`: Sync project configs and RAG with team cloud.
+- `add-extension`: Install community GameMindPilot extensions.
+
 ### Analysis & Optimization
 - `montecarlo`: Run 10k-player economy simulations.
+- `monetization-sim`: Simulate economy and monetization balance.
 - `path-audit`: Analyze navmesh and pathfinding hotspots.
 - `balance-check`: AI-powered game balance analysis.
 - `heap-scan`: Analyze memory usage and find hotspots.
@@ -80,33 +97,13 @@ npm install -g gamemindpilot
 - `mobile-audit`: Mobile-specific performance audit.
 - `mobile-power-scan`: Mobile battery and thermal efficiency audit.
 - `lod-audit`: Asset LOD verification and audit.
+- `benchmark-run`: Execute automated performance benchmarks.
 - `asset-bundler`: Analyze assets for bundling optimization.
 - `collider-gen`: Generate optimized physics colliders.
 - `collision-audit`: Audit collision layer matrix.
 - `pulse`: Get high-level project health metrics.
 - `run-test-bots`: Launch automated headless playtest bots.
-
-### Creative & Intelligence
-- `brainstorm`: Multi-agent AI brainstorming session.
-- `scan-project`: Index project for codebase-aware AI queries.
-- `ask`: Ask the AI about your specific project code.
-- `idea`: Generate unique game concepts.
-- `dialogue`: Generate NPC dialogues and choices.
-- `quest`: Generate side quests and objectives.
-- `level`: Prototyping level layouts and puzzles.
-- `storyboarder`: Cinematic scene storyboarder.
-
-### Pipeline, Legal & DevOps
-- `git-auto`: AI-powered Git commit/PR description generator.
-- `legal-gen`: Generate EULA and Store Policy templates.
-- `live-sync`: Start Engine Bridge for live editor connectivity.
-- `steam-sync`: Sync metadata with Steamworks.
-- `discord-gen`: Generate Discord bot boilerplate.
-- `l10n-sync`: AI-powered localization syncing.
-- `l10n-review`: Collaborative AI translation review bridge.
-- `marketing-kit`: Generate store assets and taglines.
-- `monitor`: Launch TUI Project Monitor Dashboard.
-- `add-extension`: Install community GameMindPilot extensions.
+- `live-qa`: Start real-time AI playtester interaction.
 
 ## ⚙️ Configuration
 

@@ -1,10 +1,14 @@
 {
   "name": "gamemindpilot",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.1.0",
+  "description": "AI-powered CLI for game developers - Design, Asset Gen, Analysis & Optimization",
   "main": "dist/index.js",
   "bin": {
     "gmpilot": "./dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/k8-tech-dev/GameMindPilot.git"
   },
   "scripts": {
     "build": "tsc",
@@ -12,9 +16,18 @@
     "dev": "ts-node src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "gamedev",
+    "ai",
+    "cli",
+    "gamemindpilot",
+    "unity",
+    "unreal",
+    "godot",
+    "generation"
+  ],
+  "author": "k8-tech-dev",
+  "license": "MIT",
   "type": "commonjs",
   "dependencies": {
     "axios": "^1.13.6",

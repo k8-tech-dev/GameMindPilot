@@ -352,4 +352,41 @@ program
   .description('Mobile battery and thermal audit')
   .action(utilityCommands.mobilePowerScan);
 
+// Expansion Wave 7
+program
+  .command('gdd-export')
+  .description('Export complete professional GDD from project intel')
+  .action(utilityCommands.gddExport);
+
+program
+  .command('cloud-sync')
+  .description('Sync project configs and RAG with team cloud')
+  .option('-t, --team <name>', 'Team/Studio name')
+  .action((options) => utilityCommands.cloudSync(options.team));
+
+program
+  .command('ci-cd-setup')
+  .description('Generate GitHub Actions for automated auditing')
+  .action(utilityCommands.ciCdSetup);
+
+program
+  .command('benchmark-run')
+  .description('Execute automated performance benchmarks')
+  .action(utilityCommands.benchmarkRun);
+
+program
+  .command('workshop-sync')
+  .description('Generate Steam Workshop and modding manifests')
+  .action(utilityCommands.workshopSync);
+
+program
+  .command('monetization-sim')
+  .description('Simulate economy and monetization balance')
+  .action(utilityCommands.monetizationSim);
+
+program
+  .command('live-qa')
+  .description('Start real-time AI playtester interaction')
+  .action(utilityCommands.liveQa);
+
 program.parse(process.argv);
