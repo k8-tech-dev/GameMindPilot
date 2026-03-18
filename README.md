@@ -70,7 +70,8 @@ While we have a massive toolkit, these 5 features are the absolute best in the i
 
 ---
 
-## 🚀 New in v3.7.60: The "Sovereign Masterpiece" release transforms the Super-Agent into a true Studio Lead. Gmpilot now proactively monitors your environment and orchestrates production-level output across all modules.
+## 🚀 New in v3.7.0: The Sovereign Masterpiece Release
+The "Sovereign Masterpiece" release transforms the Super-Agent into a true Studio Lead. Gmpilot now proactively monitors your environment and orchestrates production-level output across all modules.
 - **`gmpilot l10n`**: Professional AI-powered multi-language localization.
 - **`gmpilot optimize`**: High-level static performance & asset auditing.
 - **`gmpilot shipment-audit`**: Final 100-point professional store readiness check.
