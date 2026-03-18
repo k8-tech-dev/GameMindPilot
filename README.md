@@ -53,7 +53,7 @@ While we have a massive toolkit, these 5 features are the absolute best in the i
 ### 5. AI Security Scan (`security-scan`) - "Mission Critical"
 *   **The Proof**:
     > **Output Snippet**: "Vulnerability: RPC Spoofing in 'NetController.cs'. Exploit: Cheaters could trigger 'WinGame' events from the client. Remediation: Implement Tick-based HMAC Verification."
-# 🛸 GameMindPilot v3.5.2 - The Power-Up Update
+# 🛸 GameMindPilot v3.7.0: The Sovereign Masterpiece
 
 **Elevate your Game Development with the Ultimate AI Mission Control.**
 
@@ -65,17 +65,22 @@ The "Power-Up Update" ensures you're always hardware and API ready. Gmpilot now 
 
 This release focuses on intelligence and diagnostics:
 
-1.  **🩺 Power-Up Scanner (`doctor`)**: A robust diagnostic suite that scans for missing API keys (ElevenLabs, Gemini) and system software (Blender).
-2.  **💡 Proactive Chat Diagnostics**: The Super-Agent chat now detects missing requirements based on your intent and provides tips on how to "Power Up" immediately.
-3.  **🧠 Unified Super-Agent Chat**: Seamless orchestration of all production modules.
+1. ### 👑 Sovereign Production Suite (v3.7.0)
+- **`gmpilot l10n`**: Professional AI-powered multi-language localization.
+- **`gmpilot optimize`**: High-level static performance & asset auditing.
+- **`gmpilot shipment-audit`**: Final 100-point professional store readiness check.
+- **`gmpilot doctor`**: Proactive system & API diagnostic scanner.
 
----
+### 🎙️ Zenith Multimedia Suite (v3.5.0)
+- **`gmpilot assets voice`**: AI Voice-over generation (ElevenLabs).
+- **`gmpilot assets music`**: AI-driven soundscape prompt architecture.
+- **`gmpilot assets forge3d`**: Autonomous 3D asset generation (Blender).
+- **`gmpilot assets character`**: Professional Character Concept Sheet generator.
 
-## 👽 Core Features
-
-- **The Hero's Journey (`start`)**: A guided, AI-driven flow to take your game from concept to store-ready.
-- **Project Intelligence (`chat`)**: Code-aware project context with unlimited memory.
-- **Security & Quality Audit (`review`)**: Deep scans for architectural debt and vulnerabilities.
+### 🧠 Intelligence & Connectivity
+- **`gmpilot economy`**: AI Monetization & Stability strategist.
+- **`gmpilot net-code`**: Multiplayer Networking boilerplate architect.
+- **`gmpilot live-sync`**: Real-time Engine-to-CLI synchronization bridge.
 - **Economy Simulations (`montecarlo`)**: Stress-test your game's economy with 10k player simulations.
 
 ---
