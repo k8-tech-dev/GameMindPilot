@@ -11,6 +11,8 @@ import { assetCommands } from './assets';
 import fs from 'fs';
 import path from 'path';
 import { projectManager } from '../utils/project';
+import { economyManager } from '../utils/economy';
+import { bridgeManager } from '../utils/bridge';
 
 export const utilityCommands = {
   update: async () => {
@@ -241,9 +243,8 @@ Run \`gmpilot --help\` for a full list of commands.
   },
 
   liveSync: async () => {
-    logger.info('Initializing Engine Bridge (Live Link)...');
-    logger.info('Waiting for connection from Unity/Unreal plugin on port 8080...');
-    logger.warn('Bridge active. CLI commands will now reflect in the engine editor.');
+    logger.bold('\n--- 🚀 Launching Engine Live Bridge ---');
+    bridgeManager.start();
   },
 
   runTestBots: async (count: number = 10) => {
@@ -882,5 +883,45 @@ Run \`gmpilot --help\` for a full list of commands.
     logger.info('Testing hyper-inflation... Simulating rare drop exploits...');
     logger.warn('[Alert]: Economy broke after 1000 simulated days. Adjust drop rates in Monetization-Sim.');
     logger.success('Eco-chaos report generated.');
-  }
+  },
+
+  economy: async (prompt: string) => {
+    const spinner = ora('Analyzing Game Economy & Monetization...').start();
+    try {
+      const report = await economyManager.analyze(prompt);
+      spinner.stop();
+      logger.bold('\n--- 💎 Monetization Strategy Report ---');
+      console.log(report);
+      logger.success(`Report saved to .gmpilot/analysis/`);
+    } catch (err: any) {
+      spinner.stop();
+      logger.error(err.message);
+    }
+  },
+
+  netCode: async (prompt: string) => {
+    const spinner = ora('Generating Multiplayer Net-Code...').start();
+    try {
+      const response = await AIService.chat(`As a Senior Network Engineer, generate a multiplayer synchronization script for: "${prompt}". 
+      Requirements:
+      1. Use a modern networking library (e.g., Unity Netcode for GameObjects, Photon, or Mirror).
+      2. Implement State Synchronization and RPCs.
+      3. Include comments explaining client-side prediction and server reconciliation.`);
+      
+      spinner.stop();
+      logger.bold('\n--- 🌐 Multiplayer Net-Code ---');
+      console.log(response);
+
+      const netDir = path.join('.gmpilot', 'assets', 'netcode');
+      if (!fs.existsSync(netDir)) fs.mkdirSync(netDir, { recursive: true });
+      
+      const filename = path.join(netDir, `netcode_${Date.now()}.cs`);
+      fs.writeFileSync(filename, response);
+      logger.success(`Net-code saved to: ${filename}`);
+      projectManager.addEntry('Net-Code Gen', response);
+    } catch (err: any) {
+      spinner.stop();
+      logger.error(err.message);
+    }
+  },
 };

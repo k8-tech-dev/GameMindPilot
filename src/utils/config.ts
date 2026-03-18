@@ -15,6 +15,7 @@ export interface Config {
   user?: string;
   telemetry?: boolean;
   analyticsKey?: string;
+  elevenLabsKey?: string;
 }
 
 export const configManager = {

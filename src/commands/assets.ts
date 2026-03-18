@@ -5,6 +5,7 @@ import fs from 'fs';
 import path from 'path';
 import { projectManager } from '../utils/project';
 import { blenderManager } from '../utils/blender';
+import { audioManager } from '../utils/audio';
 
 export const assetCommands = {
   script: async (engine: string = 'unity') => {
@@ -208,6 +209,63 @@ export const assetCommands = {
     } catch (err: any) {
       spinner.stop();
       logger.error(`Forge Error: ${err.message}`);
+    }
+  },
+
+  character: async (prompt: string) => {
+    const spinner = ora(`Designing Character Sheet: ${prompt}...`).start();
+    try {
+      const response = await AIService.chat(`Generate a professional 2D Character Concept Sheet description for: "${prompt}". 
+      Include:
+      1. Front, Side, and Back view descriptions.
+      2. Color Palette (HEX).
+      3. Key Equipment & Accessories.
+      4. Unique visual motifs.`);
+      
+      spinner.stop();
+      logger.bold('\n--- 🎨 Character Concept Sheet ---');
+      console.log(response);
+
+      if (!fs.existsSync('.gmpilot/assets')) {
+         fs.mkdirSync('.gmpilot/assets', { recursive: true });
+      }
+      const filename = `.gmpilot/assets/char_${prompt.replace(/\s+/g, '_')}_${Date.now()}.md`;
+      fs.writeFileSync(filename, response);
+      logger.success(`Character sheet saved to: ${filename}`);
+      projectManager.addEntry('Character Design', response);
+    } catch (err: any) {
+      spinner.stop();
+      logger.error(err.message);
+    }
+  },
+
+  voice: async (text: string) => {
+    const spinner = ora('Forging AI Voice...').start();
+    try {
+      const filename = await audioManager.generateVoice(text);
+      spinner.stop();
+      if (filename) {
+        logger.success(`Voice-over generated: ${filename}`);
+        projectManager.addEntry('Voice Gen', `Text: ${text}. Saved to: ${filename}`);
+      }
+    } catch (err: any) {
+      spinner.stop();
+      logger.error(err.message);
+    }
+  },
+
+  music: async (prompt: string) => {
+    const spinner = ora('Architecting Soundscape...').start();
+    try {
+      const filename = await audioManager.generateSound(prompt);
+      spinner.stop();
+      if (filename) {
+        logger.success(`Soundscape prompt/metadata archived: ${filename}`);
+        projectManager.addEntry('Sound Gen', `Prompt: ${prompt}. Saved to: ${filename}`);
+      }
+    } catch (err: any) {
+      spinner.stop();
+      logger.error(err.message);
     }
   },
 };

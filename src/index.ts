@@ -12,7 +12,7 @@ const program = new Command();
 program
   .name('gmpilot')
   .description('GameMindPilot CLI - Your AI Game Development Assistant')
-  .version('3.4.0');
+  .version('3.5.0');
 
 import { loginCommand, logoutCommand } from './commands/login';
 import { chatCommand } from './commands/chat';
@@ -142,6 +142,21 @@ assets
   .command('forge3d <prompt>')
   .description('Autonomous 3D Asset Forge (Requires Blender)')
   .action((prompt) => assetCommands.forge3d(prompt));
+
+assets
+  .command('character <prompt>')
+  .description('Generate a detailed 2D Character Concept Sheet')
+  .action((prompt) => assetCommands.character(prompt));
+
+assets
+  .command('voice <text>')
+  .description('Generate AI Voice-over (Requires ElevenLabs Key)')
+  .action((text) => assetCommands.voice(text));
+
+assets
+  .command('music <prompt>')
+  .description('Generate AI Soundscape metadata/prompts')
+  .action((prompt) => assetCommands.music(prompt));
 
 program
   .command('script')
@@ -587,6 +602,16 @@ program
   .command('eco-chaos')
   .description('Extreme stress-test for virtual game economies')
   .action(utilityCommands.ecoChaos);
+
+program
+  .command('economy <prompt>')
+  .description('AI Monetization Strategist: Generate an economic report')
+  .action((prompt) => utilityCommands.economy(prompt));
+
+program
+  .command('net-code <prompt>')
+  .description('AI Multiplayer Architect: Generate networking logic')
+  .action((prompt) => utilityCommands.netCode(prompt));
 
 // Default action: Dashboard
 if (!process.argv.slice(2).length || (process.argv[2] && !program.commands.map(c => c.name()).includes(process.argv[2]) && !process.argv[2].startsWith('-'))) {
