@@ -1,6 +1,7 @@
 import ora from 'ora';
 import { AIService } from '../utils/ai-service';
 import { logger } from '../utils/logger';
+import { projectManager } from '../utils/project';
 
 export const simCommands = {
   montecarlo: async (players: number = 10000) => {
@@ -21,6 +22,8 @@ export const simCommands = {
       spinner.stop();
       logger.bold(`\n--- 📈 High-Fidelity Economy Simulation (Mastery Level) ---`);
       console.log(response);
+      
+      projectManager.addEntry('Economy Simulation', response);
     } catch (err: any) {
       spinner.stop();
       logger.error(err.message);
@@ -34,6 +37,8 @@ export const simCommands = {
       spinner.stop();
       logger.bold('\n--- Project Pulse Health Report ---');
       console.log(response);
+      
+      projectManager.addEntry('Project Pulse', response);
     } catch (err: any) {
       spinner.stop();
       logger.error(err.message);
@@ -47,6 +52,8 @@ export const simCommands = {
       spinner.stop();
       logger.bold('\n--- Autonomous Self-Healing Audit ---');
       console.log(response);
+      
+      projectManager.addEntry('Self-Healing Audit', response);
     } catch (err: any) {
       spinner.stop();
       logger.error(err.message);

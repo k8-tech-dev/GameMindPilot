@@ -1,6 +1,7 @@
 import ora from 'ora';
 import { AIService } from '../utils/ai-service';
 import { logger } from '../utils/logger';
+import { projectManager } from '../utils/project';
 
 export const designCommands = {
   idea: async () => {
@@ -21,6 +22,8 @@ export const designCommands = {
       spinner.stop();
       logger.bold('\n--- 🛸 Industry-Grade Game Concepts (Mastery Level) ---');
       console.log(response);
+      
+      projectManager.addEntry('Game Concept', response);
     } catch (err: any) {
       spinner.stop();
       logger.error(err.message);
@@ -44,6 +47,8 @@ export const designCommands = {
       spinner.stop();
       logger.bold('\n--- 🎭 Narrative & Dialogue Matrix (Mastery Level) ---');
       console.log(response);
+      
+      projectManager.addEntry('Dialogue Tree', response);
     } catch (err: any) {
       spinner.stop();
       logger.error(err.message);
@@ -57,6 +62,8 @@ export const designCommands = {
       spinner.stop();
       logger.bold('\n--- Quest Design ---');
       console.log(response);
+      
+      projectManager.addEntry('Quest Design', response);
     } catch (err: any) {
       spinner.stop();
       logger.error(err.message);
@@ -70,6 +77,8 @@ export const designCommands = {
       spinner.stop();
       logger.bold(`\n--- ${theme.toUpperCase()} Level Layout ---`);
       console.log(response);
+      
+      projectManager.addEntry(`Level Layout (${theme})`, response);
     } catch (err: any) {
       spinner.stop();
       logger.error(err.message);
