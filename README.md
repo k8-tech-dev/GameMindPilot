@@ -22,6 +22,22 @@ This guided flow will help you decide what to build and how to use the CLI effec
 
 **Total Time: ~50 seconds. Full technical foundation ready.**
 
+---
+
+## 🧠 The Super-Agent Chat Architect (`chat`)
+**The "Unified Brain" of your game studio.**  
+The `chat` command is no longer just a chatbot—it is a **Super-Agent** that can orchestrate the entire CLI.
+- **Action Triggers**: Command the AI to: *"Forge a 3D sword"*, *"Analyze my economy"*, or *"Localize my strings to Hindi"*.
+- **Codebase Awareness**: It understands your entire project structure and can propose/apply complex code edits.
+- **Autonomous Problem Solving**: If a dependency is missing, it guides you through the "Power-Up" process.
+
+```bash
+gmpilot chat
+```
+*Try: "Analyze my project for performance bottlenecks and generate a fix plan."*
+
+---
+
 ## 🎬 Visual Command Center
 Experience the premium, glassmorphism-styled dashboard:
 
@@ -54,11 +70,7 @@ While we have a massive toolkit, these 5 features are the absolute best in the i
 
 ---
 
-## 🚀 New in v3.7.0: The Sovereign Masterpiece Release
-
-This release focuses on intelligence and diagnostics:
-
-1. ### 👑 Sovereign Production Suite (v3.7.0)
+## 🚀 New in v3.7.60: The "Sovereign Masterpiece" release transforms the Super-Agent into a true Studio Lead. Gmpilot now proactively monitors your environment and orchestrates production-level output across all modules.
 - **`gmpilot l10n`**: Professional AI-powered multi-language localization.
 - **`gmpilot optimize`**: High-level static performance & asset auditing.
 - **`gmpilot shipment-audit`**: Final 100-point professional store readiness check.
