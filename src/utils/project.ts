@@ -75,7 +75,7 @@ export const projectManager = {
       
       let summary = `Project: ${context.projectName} (Author: ${context.author})\n\nRecent History:\n`;
       context.history.forEach((entry, i) => {
-        summary += `[${i+1}] ${entry.type} (${new Date(entry.timestamp).toLocaleString()}):\n${entry.content.substring(0, 500)}...\n\n`;
+        summary += `[${i+1}] ${entry.type} (${new Date(entry.timestamp).toLocaleString()}):\n${entry.content.substring(0, 3000)}...\n\n`;
       });
       return summary;
     } catch (err) {
