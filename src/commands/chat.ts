@@ -3,6 +3,8 @@ import ora from 'ora';
 import { AIService } from '../utils/ai-service';
 import { logger } from '../utils/logger';
 import { projectManager } from '../utils/project';
+import { assetCommands } from './assets';
+import { utilityCommands } from './utility';
 
 export const chatCommand = async () => {
   logger.info('Starting GameMindPilot AI Chat (Memory Enabled)...');
@@ -17,9 +19,10 @@ ${projectSummary}
 Files in Project:
 ${fileList.join('\n')}
 
-Capability: You can propose file changes (Create, Update, or Delete). 
-If you want to modify files, include a JSON block in your response using this format:
-[{"path": "relative/path/to/file", "content": "full file content", "action": "create"|"update"|"delete"}]
+Capability: 
+1. **File Edits**: Propose file changes using: [{"path": "string", "content": "string", "action": "create"|"update"|"delete"}]
+2. **Super-Agent Actions**: Trigger specialized CLI modules using: {"trigger": "action_name", "params": "input_string"}
+   - Actions: "forge3d", "voice", "music", "character", "economy", "net-code"
 
 Always prioritize narrative-first technical excellence.
 `;
@@ -70,6 +73,37 @@ Always prioritize narrative-first technical excellence.
           }
         } catch (e) {
           // JSON might be invalid or just a conversational mention
+        }
+      }
+
+      // --- Super-Agent Action Logic ---
+      const actionStart = response.indexOf('{"trigger"');
+      if (actionStart !== -1) {
+        const actionEnd = response.lastIndexOf('}') + 1;
+        try {
+          const action = JSON.parse(response.substring(actionStart, actionEnd));
+          if (action.trigger && action.params) {
+            const { proceed } = await inquirer.prompt([{
+              type: 'confirm',
+              name: 'proceed',
+              message: `🚀 Gmpilot wants to execute action: [${action.trigger}]. Proceed?`,
+              default: true
+            }]);
+
+            if (proceed) {
+              switch (action.trigger) {
+                case 'forge3d': await assetCommands.forge3d(action.params); break;
+                case 'voice': await assetCommands.voice(action.params); break;
+                case 'music': await assetCommands.music(action.params); break;
+                case 'character': await assetCommands.character(action.params); break;
+                case 'economy': await utilityCommands.economy(action.params); break;
+                case 'net-code': await utilityCommands.netCode(action.params); break;
+                default: logger.warn(`Unknown action: ${action.trigger}`);
+              }
+            }
+          }
+        } catch (e) {
+          // Action parse fail
         }
       }
 

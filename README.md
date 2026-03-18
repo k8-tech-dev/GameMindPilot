@@ -1,4 +1,4 @@
-# 🛸 GameMindPilot CLI v3.5.0 - The Zenith Suite Update
+# 🛸 GameMindPilot CLI v3.5.1 - The Super-Agent Update
 
 [![npm version](https://img.shields.io/npm/v/gamemindpilot.svg)](https://www.npmjs.com/package/gamemindpilot)
 [![downloads](https://img.shields.io/npm/dm/gamemindpilot.svg)](https://www.npmjs.com/package/gamemindpilot)
@@ -53,25 +53,25 @@ While we have a massive toolkit, these 5 features are the absolute best in the i
 ### 5. AI Security Scan (`security-scan`) - "Mission Critical"
 *   **The Proof**:
     > **Output Snippet**: "Vulnerability: RPC Spoofing in 'NetController.cs'. Exploit: Cheaters could trigger 'WinGame' events from the client. Remediation: Implement Tick-based HMAC Verification."
-# 🛸 GameMindPilot v3.5.0 - The Zenith Suite Update
+# 🛸 GameMindPilot v3.5.1 - The Super-Agent Update
 
 **Elevate your Game Development with the Ultimate AI Mission Control.**
 
-GameMindPilot is an industry-grade CLI assistant designed for Senior Game Architects. The "Zenith Suite" transforms the CLI into a complete multimedia and intelligence production hub.
+The "Super-Agent Update" consolidates all production modules into a single, unified chat interface. Command the entire Zenith Suite without leaving the chat.
 
 ---
 
-## 🚀 New in v3.5.0: The Zenith Suite Update
+## 🚀 New in v3.5.1: The Super-Agent Update
 
-This massive release introduces the missing layers of game production:
+This release bridges the gap between conversation and production:
 
-1.  **🎙️ AI Voice Forge (`assets voice`)**: Integrate with ElevenLabs to generate professional voice-overs for your dialogue scripts.
-2.  **🎵 Sound & Music Studio (`assets music`)**: Generate immersive soundscapes and technical audio prompts.
-3.  **💎 Monetization Strategist (`economy`)**: Get professional AI analysis of your game's virtual economy and IAP strategy.
-4.  **🎨 Character Artist (`assets character`)**: Generate detailed 2D character concept sheets for your artists.
-5.  **🌐 Multiplayer Architect (`net-code`)**: Automatically generate networking synchronization logic (Unity Netcode/Photon).
-6.  **🚀 Engine Live Bridge (`live-sync`)**: Start a real-time bridge to sync your CLI commands directly with Unity/Godot.
-7.  **🎮 3D Forge (`assets forge3d`)**: Headless Blender integration for autonomous 3D generation.
+1.  **🧠 Unified Super-Agent Chat (`chat`)**: THE CORE UPGRADE. The AI chat can now trigger all specialized modules. Want a 3D sword? A voice-over? An economy audit? Just ask in the chat, and Gmpilot will handle the logic.
+2.  **🎙️ AI Voice Forge**: Generate professional voice-overs directly from chat or command.
+3.  **🎵 Sound & Music Studio**: Architect soundscapes with technical precision.
+4.  **💎 Monetization Strategist**: AI-driven economic audits for sustainable monetization.
+5.  **🎨 Character Artist**: Detailed 2D Concept Sheets generated on demand.
+6.  **🌐 Multiplayer Architect**: Networking logic generation integrated into the chat flow.
+7.  **🚀 Engine Live Bridge**: Real-time sync with Unity/Godot.
 
 ---
 
