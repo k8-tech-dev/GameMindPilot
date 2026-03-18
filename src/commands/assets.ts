@@ -40,5 +40,44 @@ export const assetCommands = {
       spinner.stop();
       logger.error(err.message);
     }
+  },
+
+  sprite: async (desc: string) => {
+    const spinner = ora(`Generating sprite sequence for: ${desc}...`).start();
+    try {
+      const response = await AIService.chat(`Generate frame-by-frame animation metadata and visual description for a sprite: ${desc}. Include frame timings, pivot points, and a description of each frame's key pose.`);
+      spinner.stop();
+      logger.bold('\n--- Sprite Animation Metadata ---');
+      console.log(response);
+    } catch (err: any) {
+      spinner.stop();
+      logger.error(err.message);
+    }
+  },
+
+  material: async (prompt: string) => {
+    const spinner = ora(`Forging material: ${prompt}...`).start();
+    try {
+      const response = await AIService.chat(`Generate PBR material parameters for: ${prompt}. Include Albedo, Metallic, Roughness, Normal Map strength, and Height/Displacement suggestions.`);
+      spinner.stop();
+      logger.bold('\n--- PBR Material Maps ---');
+      console.log(response);
+    } catch (err: any) {
+      spinner.stop();
+      logger.error(err.message);
+    }
+  },
+
+  vfx: async () => {
+    const spinner = ora('Generating particle system parameters...').start();
+    try {
+      const response = await AIService.chat('Generate detailed particle system parameters for a "Dark Magic Portal" effect. Include spawn rate, life-time color gradients, velocity curves, and sub-emitter details.');
+      spinner.stop();
+      logger.bold('\n--- VFX Particle Parameters ---');
+      console.log(response);
+    } catch (err: any) {
+      spinner.stop();
+      logger.error(err.message);
+    }
   }
 };

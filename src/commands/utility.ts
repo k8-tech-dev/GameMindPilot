@@ -96,11 +96,6 @@ Run \`gmpilot --help\` for a full list of commands.
     logger.success('Collision audit complete. No overlaps detected in restricted layers.');
   },
 
-  vfxGen: async () => {
-    logger.info('Generating VFX particle system parameters (Unity/Unreal)...');
-    logger.success('VFX preset generated in ./assets/vfx/');
-  },
-
   uiLayout: async () => {
     logger.info('Generating AI-powered UI layout prototypes (JSON/XML)...');
     logger.success('HUD and Menu layouts generated in ./ui/');
@@ -220,12 +215,6 @@ Run \`gmpilot --help\` for a full list of commands.
     logger.info('Reviewing "dialogue_v3.json" matches found in Vector DB...');
     logger.warn('[Alert]: Row 45 "Greetings" has low confidence translation in Japanese.');
     logger.success('Review complete. Exporting approved strings to ./locales/');
-  },
-
-  generateSprite: async (description: string) => {
-    logger.info(`Generating frame-by-frame sprite assets for: ${description}...`);
-    logger.info('Generating 8-frame walk cycle... Rendering pixel-art style...');
-    logger.success(`Sprites generated successfully in ./assets/sprites/${description.replace(/\s+/g, '_')}/`);
   },
 
   legalGen: async () => {
@@ -568,12 +557,6 @@ Run \`gmpilot --help\` for a full list of commands.
       logger.info('Balanced player completed level in 4:12 minutes.');
     }
     logger.success('Persona playtest complete.');
-  },
-
-  materialForge: async (prompt: string) => {
-    logger.info(`Forging PBR material maps for: "${prompt}"...`);
-    logger.info('Generating Albedo, Normal, Roughness, and Ambient Occlusion maps...');
-    logger.success('Material assets generated in ./assets/materials/ai_forge/');
   },
 
   ensembleBrain: async (prompt: string) => {

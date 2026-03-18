@@ -12,7 +12,7 @@ const program = new Command();
 program
   .name('gmpilot')
   .description('GameMindPilot CLI - Your AI Game Development Assistant')
-  .version('2.9.1');
+  .version('2.9.2');
 
 import { loginCommand } from './commands/login';
 import { chatCommand } from './commands/chat';
@@ -103,6 +103,31 @@ program
   .action(simCommands.heal);
 
 // Assets & Boilerplate
+const assets = program
+  .command('assets')
+  .description('Unified game asset generation suite');
+
+assets
+  .command('item')
+  .alias('enemy')
+  .description('Procedural asset generation (item/enemy)')
+  .action(assetCommands.item);
+
+assets
+  .command('sprite <description>')
+  .description('AI-powered frame-by-frame sprite generation')
+  .action((desc) => assetCommands.sprite(desc));
+
+assets
+  .command('material <prompt>')
+  .description('Generate engine-ready PBR material maps from text')
+  .action((prompt) => assetCommands.material(prompt));
+
+assets
+  .command('vfx')
+  .description('Generate particle system parameters')
+  .action(assetCommands.vfx);
+
 program
   .command('script')
   .description('Generate code for Unity, Unreal, Godot')
@@ -117,7 +142,7 @@ program
 program
   .command('item')
   .alias('enemy')
-  .description('Procedural asset generation (item/enemy)')
+  .description('Procedural asset generation (item/enemy) [Legacy]')
   .action(assetCommands.item);
 
 import { designCommands } from './commands/design';
@@ -236,11 +261,6 @@ program
   .action(utilityCommands.collisionAudit);
 
 program
-  .command('vfx-gen')
-  .description('Generate particle system parameters')
-  .action(utilityCommands.vfxGen);
-
-program
   .command('ui-layout')
   .description('AI-generated UI layout prototypes')
   .action(utilityCommands.uiLayout);
@@ -317,11 +337,6 @@ program
   .command('l10n-review')
   .description('Collaborative AI translation review bridge')
   .action(utilityCommands.l10nReview);
-
-program
-  .command('generate-sprite <description>')
-  .description('AI-powered frame-by-frame sprite generation')
-  .action((desc) => utilityCommands.generateSprite(desc));
 
 // Expansion Wave 6
 program
@@ -446,11 +461,6 @@ program
   .description('Simulate specific player personalities (e.g., speedrunner)')
   .option('-t, --type <persona>', 'Persona type (speedrunner, completionist, casual)', 'balanced')
   .action((options) => utilityCommands.personaPlaytest(options.type));
-
-program
-  .command('material-forge <prompt>')
-  .description('Generate engine-ready PBR material maps from text')
-  .action((prompt) => utilityCommands.materialForge(prompt));
 
 program
   .command('ensemble-brain <prompt>')
