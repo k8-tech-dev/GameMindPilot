@@ -12,9 +12,9 @@ const program = new Command();
 program
   .name('gmpilot')
   .description('GameMindPilot CLI - Your AI Game Development Assistant')
-  .version('3.1.0');
+  .version('3.2.1');
 
-import { loginCommand } from './commands/login';
+import { loginCommand, logoutCommand } from './commands/login';
 import { chatCommand } from './commands/chat';
 import { initCommand } from './commands/init';
 import { utilityCommands } from './commands/utility';
@@ -33,6 +33,11 @@ program
   .command('login')
   .description('Login to GameMindPilot or configure API keys')
   .action(loginCommand);
+
+program
+  .command('logout')
+  .description('Clear all stored API keys and credentials')
+  .action(logoutCommand);
 
 program
   .command('init')

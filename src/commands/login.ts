@@ -76,3 +76,21 @@ export const loginCommand = async () => {
   configManager.set(update);
   logger.success(`Successfully configured ${provider}! Selected model: ${modelAns.modelName}`);
 };
+
+export const logoutCommand = async () => {
+  const { confirm } = await inquirer.prompt([
+    {
+      type: 'confirm',
+      name: 'confirm',
+      message: 'Are you sure you want to log out? This will clear all stored API keys.',
+      default: false
+    }
+  ]);
+
+  if (confirm) {
+    configManager.clear();
+    logger.success('Successfully logged out. All credentials have been cleared.');
+  } else {
+    logger.info('Logout cancelled.');
+  }
+};
