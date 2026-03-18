@@ -12,7 +12,7 @@ const program = new Command();
 program
   .name('gmpilot')
   .description('GameMindPilot CLI - Your AI Game Development Assistant')
-  .version('2.9.2');
+  .version('2.9.3');
 
 import { loginCommand } from './commands/login';
 import { chatCommand } from './commands/chat';

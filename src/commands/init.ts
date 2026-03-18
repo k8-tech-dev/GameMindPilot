@@ -1,3 +1,5 @@
+import fs from 'fs';
+import path from 'path';
 import inquirer from 'inquirer';
 import { logger } from '../utils/logger';
 import { configManager } from '../utils/config';
@@ -21,6 +23,16 @@ export const initCommand = async () => {
   ]);
 
   configManager.set({ user: answers.author });
+  
+  // Create local project marker
+  const projectConfig = {
+    name: answers.projectName,
+    author: answers.author,
+    initializedAt: new Date().toISOString()
+  };
+  
+  fs.writeFileSync(path.join(process.cwd(), '.gmpilot'), JSON.stringify(projectConfig, null, 2));
+
   logger.success(`Project "${answers.projectName}" initialized for ${answers.author}!`);
   logger.info('Run "gmpilot --help" to see available features.');
 };

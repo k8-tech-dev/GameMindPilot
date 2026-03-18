@@ -1,4 +1,4 @@
-# 🛸 GameMindPilot CLI v2.9.2 - The Narrative-First Mastery
+# 🛸 GameMindPilot CLI v2.9.3 - The Narrative-First Mastery
 
 [![npm version](https://img.shields.io/npm/v/gamemindpilot.svg)](https://www.npmjs.com/package/gamemindpilot)
 [![downloads](https://img.shields.io/npm/dm/gamemindpilot.svg)](https://www.npmjs.com/package/gamemindpilot)

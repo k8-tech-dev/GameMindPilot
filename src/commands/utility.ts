@@ -5,6 +5,11 @@ import { logger } from '../utils/logger';
 import { configManager } from '../utils/config';
 import { AIService } from '../utils/ai-service';
 import { execSync } from 'child_process';
+import { designCommands } from './design';
+import { simCommands } from './simulation';
+import { assetCommands } from './assets';
+import fs from 'fs';
+import path from 'path';
 
 export const utilityCommands = {
   update: async () => {
@@ -629,6 +634,14 @@ Run \`gmpilot --help\` for a full list of commands.
 
   start: async () => {
     logger.bold('\n--- 🛸 Welcome to the GameMindPilot Hero\'s Journey ---');
+    
+    // Project detection
+    const isInitialized = fs.existsSync(path.join(process.cwd(), '.gmpilot'));
+    
+    if (!isInitialized) {
+      logger.warn('Tip: Our AI suggests starting with "gmpilot init" to index your project first.');
+    }
+
     const { goal } = await inquirer.prompt([
       {
         type: 'list',
@@ -639,13 +652,24 @@ Run \`gmpilot --help\` for a full list of commands.
           '🎭 I want to write complex NPC Dialogues (dialogue)',
           '📈 I want to balance my Game Economy (montecarlo)',
           '🛡️ I want to scan my project for Bugs/Security (review)',
-          '📦 I want to optimize my Game Assets (asset-optimize)'
+          '📦 I want to optimize my Game Assets (assets item)'
         ]
       }
     ]);
 
     logger.info(`Great choice! Launching guided flow for mission: ${goal}`);
-    logger.warn('Tip: Our AI suggests starting with "gmpilot init" to index your project first.');
+    
+    if (goal.includes('idea')) {
+      await designCommands.idea();
+    } else if (goal.includes('dialogue')) {
+      await designCommands.dialogue();
+    } else if (goal.includes('montecarlo')) {
+      await simCommands.montecarlo();
+    } else if (goal.includes('review')) {
+      await utilityCommands.review();
+    } else if (goal.includes('assets')) {
+      await assetCommands.item();
+    }
   },
 
   demo: async () => {
