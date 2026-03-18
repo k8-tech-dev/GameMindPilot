@@ -13,6 +13,7 @@ import path from 'path';
 import { projectManager } from '../utils/project';
 import { economyManager } from '../utils/economy';
 import { bridgeManager } from '../utils/bridge';
+import { blenderManager } from '../utils/blender';
 
 export const utilityCommands = {
   update: async () => {
@@ -617,11 +618,40 @@ Run \`gmpilot --help\` for a full list of commands.
   },
 
   doctor: async () => {
-    logger.info('Running GameMindPilot System Diagnostics...');
-    logger.info('Check: Environment Variables... [OK]');
-    logger.info('Check: Engine Link (Unity/Unreal)... [OK]');
-    logger.info('Check: Vector DB Consistency... [OK]');
-    logger.success('System health is optimal. No issues detected.');
+    logger.bold('\n--- 🩺 GameMindPilot System Diagnostics ---');
+    const config = configManager.get();
+    
+    // 1. AI Core Checks
+    logger.info('Checking AI Intelligence Core...');
+    if (config.geminiKey) logger.success('  [OK] Gemini Intelligence Link active.');
+    else logger.warn('  [MISSING] Gemini API Key (Required for core chat).');
+
+    if (config.openaiKey) logger.success('  [OK] OpenAI Intelligence Link active.');
+    else logger.info('  [INFO] OpenAI Key missing (Optional).');
+
+    // 2. Multimedia Power-Ups
+    logger.info('Checking Multimedia Power-Ups...');
+    if (config.elevenLabsKey) logger.success('  [OK] ElevenLabs Voice Forge active.');
+    else logger.warn('  [MISSING] ElevenLabs API Key (Required for AI Voice).');
+
+    // 3. System Dependencies
+    logger.info('Checking System Dependencies...');
+    const hasBlender = await blenderManager.detect();
+    if (hasBlender) logger.success('  [OK] Blender 3D Forge path detected.');
+    else logger.warn('  [MISSING] Blender installation not found (Required for 3D Forge).');
+
+    // 4. Project Health
+    logger.info('Checking Project Health...');
+    const isInitialized = fs.existsSync('.gmpilot');
+    if (isInitialized) logger.success('  [OK] Current directory is an active Gmpilot project.');
+    else logger.info('  [INFO] Not in a Gmpilot project. Run "gmpilot init" to start.');
+
+    logger.bold('\n--- 🏁 Diagnostic Summary ---');
+    if (!config.geminiKey || !config.elevenLabsKey || !hasBlender) {
+      logger.info('💡 TIP: Use "gmpilot login" to set API keys and download Blender to unlock full "Zenith Suite" power.');
+    } else {
+      logger.success('System is at Critical Power Level. You are ready to build masterpieces!');
+    }
   },
 
   assetOptimize: async () => {

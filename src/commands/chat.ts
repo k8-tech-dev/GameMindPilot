@@ -5,6 +5,8 @@ import { logger } from '../utils/logger';
 import { projectManager } from '../utils/project';
 import { assetCommands } from './assets';
 import { utilityCommands } from './utility';
+import { blenderManager } from '../utils/blender';
+import { configManager } from '../utils/config';
 
 export const chatCommand = async () => {
   logger.info('Starting GameMindPilot AI Chat (Memory Enabled)...');
@@ -12,6 +14,14 @@ export const chatCommand = async () => {
 
   const projectSummary = projectManager.getSummary();
   const fileList = projectManager.scanFiles();
+  const config = configManager.get();
+  const hasBlender = await blenderManager.detect();
+
+  const powerUpStatus = `
+Power-Up Status:
+- Blender: ${hasBlender ? 'CONNECTED' : 'MISSING (forge3d disabled)'}
+- ElevenLabs: ${config.elevenLabsKey ? 'CONNECTED' : 'MISSING (voice disabled)'}
+`;
   const systemPrompt = `You are GameMindPilot AI, a Senior Technical Game Architect.
 Current Project Status:
 ${projectSummary}
@@ -23,6 +33,9 @@ Capability:
 1. **File Edits**: Propose file changes using: [{"path": "string", "content": "string", "action": "create"|"update"|"delete"}]
 2. **Super-Agent Actions**: Trigger specialized CLI modules using: {"trigger": "action_name", "params": "input_string"}
    - Actions: "forge3d", "voice", "music", "character", "economy", "net-code"
+
+${powerUpStatus}
+If the user asks for an action that is MISSING, explain that they need to "Power Up" by setting the key or installing the software.
 
 Always prioritize narrative-first technical excellence.
 `;
