@@ -642,33 +642,62 @@ Run \`gmpilot --help\` for a full list of commands.
       logger.warn('Tip: Our AI suggests starting with "gmpilot init" to index your project first.');
     }
 
-    const { goal } = await inquirer.prompt([
-      {
-        type: 'list',
-        name: 'goal',
-        message: 'What is your primary mission today?',
-        choices: [
-          '🔥 I want to generate a new Game Concept (idea)',
-          '🎭 I want to write complex NPC Dialogues (dialogue)',
-          '📈 I want to balance my Game Economy (montecarlo)',
-          '🛡️ I want to scan my project for Bugs/Security (review)',
-          '📦 I want to optimize my Game Assets (assets item)'
-        ]
-      }
-    ]);
+    let stayInJourney = true;
 
-    logger.info(`Great choice! Launching guided flow for mission: ${goal}`);
-    
-    if (goal.includes('idea')) {
-      await designCommands.idea();
-    } else if (goal.includes('dialogue')) {
-      await designCommands.dialogue();
-    } else if (goal.includes('montecarlo')) {
-      await simCommands.montecarlo();
-    } else if (goal.includes('review')) {
-      await utilityCommands.review();
-    } else if (goal.includes('assets')) {
-      await assetCommands.item();
+    while (stayInJourney) {
+      const { goal } = await inquirer.prompt([
+        {
+          type: 'list',
+          name: 'goal',
+          message: 'What is your primary mission today?',
+          choices: [
+            '🔥 Generate a new Game Concept (idea)',
+            '🎭 Write complex NPC Dialogues (dialogue)',
+            '📈 Balance my Game Economy (montecarlo)',
+            '🛡️ Scan my project for Bugs/Security (review)',
+            '📦 Generate Game Assets (assets item)',
+            '🚪 Exit the Hero\'s Journey'
+          ]
+        }
+      ]);
+
+      if (goal.includes('Exit')) {
+        stayInJourney = false;
+        logger.success('\n--- 🏁 Journey Complete. Good luck with your game! ---');
+        break;
+      }
+
+      logger.info(`Great choice! Launching guided flow for mission: ${goal}`);
+      
+      if (goal.includes('idea')) {
+        await designCommands.idea();
+      } else if (goal.includes('dialogue')) {
+        await designCommands.dialogue();
+      } else if (goal.includes('montecarlo')) {
+        await simCommands.montecarlo();
+      } else if (goal.includes('review')) {
+        await utilityCommands.review();
+      } else if (goal.includes('assets')) {
+        await assetCommands.item();
+      }
+
+      // Asking for next steps
+      const { next } = await inquirer.prompt([
+        {
+          type: 'list',
+          name: 'next',
+          message: '\nMission Accomplished! What\'s your next move?',
+          choices: [
+            '🔄 Return to Mission Hub',
+            '🚪 Exit Journey'
+          ]
+        }
+      ]);
+
+      if (next.includes('Exit')) {
+        stayInJourney = false;
+        logger.success('\n--- 🏁 Journey Complete. Go build something great! ---');
+      }
     }
   },
 
