@@ -316,7 +316,7 @@ Run \`gmpilot --help\` for a full list of commands.
   },
 
   interactiveDashboard: async () => {
-    logger.bold('\n--- 🛸 GameMindPilot COMMAND CENTER v2.4.0 ---');
+    logger.bold('\n--- 🛸 GameMindPilot COMMAND CENTER v2.9.0 ---');
     logger.info('Master 100+ AI commands across the entire game dev lifecycle.');
     
     const { category } = await inquirer.prompt([
@@ -481,7 +481,7 @@ Run \`gmpilot --help\` for a full list of commands.
               </header>
 
               <div class="hero-section">
-                  <h1>Command Center v2.4.0</h1>
+                  <h1>Command Center v2.9.0</h1>
                   <p>AI-Powered Game Development Intelligence Dashboard</p>
               </div>
 
@@ -666,7 +666,7 @@ Run \`gmpilot --help\` for a full list of commands.
   },
 
   demo: async () => {
-    logger.bold('\n--- 🎬 GameMindPilot MASTERY SHOWCASE (v2.6.0) ---');
+    logger.bold('\n--- 🎬 GameMindPilot MASTERY SHOWCASE (v2.9.0) ---');
     logger.info('Experience the "Unbeatable" reasoning of our Hero Features.');
     
     const spinner = ora('Initializing Neural Demo Environment...').start();
