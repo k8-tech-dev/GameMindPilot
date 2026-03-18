@@ -12,7 +12,7 @@ const program = new Command();
 program
   .name('gmpilot')
   .description('GameMindPilot CLI - Your AI Game Development Assistant')
-  .version('2.9.8');
+  .version('3.1.0');
 
 import { loginCommand } from './commands/login';
 import { chatCommand } from './commands/chat';
@@ -128,11 +128,21 @@ assets
   .description('Generate particle system parameters')
   .action(assetCommands.vfx);
 
+assets
+  .command('all')
+  .description('Generate a complete asset suite (Mastery Level)')
+  .action(assetCommands.all);
+
 program
   .command('script')
   .description('Generate code for Unity, Unreal, Godot')
   .option('-e, --engine <type>', 'Target engine (unity, unreal, godot)', 'unity')
   .action((options) => assetCommands.script(options.engine));
+
+program
+  .command('scaffold <engine>')
+  .description('Generate complete game system boilerplate for specific engines')
+  .action((engine) => assetCommands.scaffold(engine));
 
 program
   .command('blueprint')
@@ -200,9 +210,14 @@ program
   .action(() => logger.info('Heatmap visualization requires integrated telemetry data...'));
 
 program
-  .command('playtest-reports')
-  .description('Generate automated playtest summaries')
-  .action(() => logger.info('Analyzing playtest data logs...'));
+  .command('playtest')
+  .description('Launch real-time AI playtester for feedback loops')
+  .action(utilityCommands.playtest);
+
+program
+  .command('architect <prompt>')
+  .description('Autonomous Project Architect: Analyze and modify project structure')
+  .action((prompt) => utilityCommands.architect(prompt));
 
 program
   .command('docs-gen')
@@ -431,9 +446,10 @@ program
 
 // Expansion Wave 9 (Visual Command Center)
 program
-  .command('web-view')
+  .command('dashboard')
+  .alias('web-view')
   .description('Launch local browser-based project dashboard')
-  .action(utilityCommands.webView);
+  .action(utilityCommands.dashboard);
 
 program
   .command('plugin-publish')

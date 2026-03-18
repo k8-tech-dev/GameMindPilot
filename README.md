@@ -1,4 +1,4 @@
-# 🛸 GameMindPilot CLI v2.9.8 - The Narrative-First Mastery
+# 🛸 GameMindPilot CLI v3.1.0 - The Architect Suite
 
 [![npm version](https://img.shields.io/npm/v/gamemindpilot.svg)](https://www.npmjs.com/package/gamemindpilot)
 [![downloads](https://img.shields.io/npm/dm/gamemindpilot.svg)](https://www.npmjs.com/package/gamemindpilot)
@@ -53,31 +53,56 @@ While we have a massive toolkit, these 5 features are the absolute best in the i
 ### 5. AI Security Scan (`security-scan`) - "Mission Critical"
 *   **The Proof**:
     > **Output Snippet**: "Vulnerability: RPC Spoofing in 'NetController.cs'. Exploit: Cheaters could trigger 'WinGame' events from the client. Remediation: Implement Tick-based HMAC Verification."
-*   **Result**: Built-in protection for your multiplayer games.
+# 🛸 GameMindPilot v3.1.0 - The Architect Suite
 
-## 🎯 What Can You Build with GameMindPilot?
+**Elevate your Game Development with the Ultimate AI Mission Control.**
 
-*   **🎮 Full RPG Game Design**: From the first spark of an `idea` to deep `dialogue` trees, balanced `economy` simulations, and structured technical `blueprints`.
-*   **🛠️ Multiplayer Game Systems**: Generate complex `net-sync` logic, perform deep `security-scan` audits, and verify RPC integrity in minutes.
-*   **📈 Economy Balancing**: Use high-fidelity `montecarlo` simulations to stress-test your virtual markets with 10k+ virtual players before you even write a line of server code.
-*   **🧠 AI-Driven Narrative Worlds**: Create emotionally resonant NPCs and branching quest graphs with `behavior-trees` and `storyboarder` integration.
+GameMindPilot is an industry-grade CLI assistant designed for Senior Game Architects. From narrative-first concepts to technical audits and procedural assets, gmpilot automates the friction so you can focus on the fun.
 
-## 📦 Installation
+---
 
-Install globally using npm:
+## 🚀 New in v3.1.0: The Architect Suite
+
+This major release transforms GameMindPilot into a complete game development ecosystem:
+
+1.  **🏗️ Project Architect (`architect`)**: THE KILLER FEATURE. Give a high-level prompt, and GameMindPilot will autonomously scan, read, and modify your entire project structure.
+2.  **📄 GDD Architect (`export`)**: Instantly turn your project's AI history into a professional, multi-page Game Design Document.
+3.  **📦 Asset Generation v2 (`assets all`)**: Generate full asset suites (items, enemies, VFX) and save them directly to your project as persistent files.
+4.  **🖥️ Project Dashboard (`dashboard`)**: Launch a premium, browser-based command center to visualize your project's technical and narrative evolution.
+5.  **🏗️ Code Scaffolder (`scaffold`)**: Generate architecture-aware boilerplate for Unity (C#), Pygame (Python), and Web (JS) in seconds.
+6.  **🎮 AI Playtester (`playtest`)**: Engage an "AI QA Lead" to perform mental playtests of your mechanics and provide critical balancing feedback.
+
+---
+
+## 👽 Core Features
+
+- **The Hero's Journey (`start`)**: A guided, AI-driven flow to take your game from concept to store-ready.
+- **Project Intelligence (`chat`)**: Code-aware project context with unlimited memory.
+- **Security & Quality Audit (`review`)**: Deep scans for architectural debt and vulnerabilities.
+- **Economy Simulations (`montecarlo`)**: Stress-test your game's economy with 10k player simulations.
+
+---
+
+## 🛠️ Installation & Usage
 
 ```bash
 npm install -g gamemindpilot
+gmpilot start
 ```
 
-## 🛠️ Getting Started
+For a full list of commands, run `gmpilot --help`.
 
-1. **Initialize a Project:**
-   ```bash
-   gmpilot init
-   ```
+---
 
-2. **Configure AI Provider:**
+## 💎 Why GameMindPilot?
+
+- **Narrative-First Architecture**: We don't just generate code; we understand your game's soul.
+- **Principal-Level Insights**: Get feedback usually reserved for Senior Lead Architects.
+- **Unlimited Context**: Persistent project memory means gmpilot grows with your game.
+
+---
+
+Generated with ❤️ for Game Designers everywhere.
    ```bash
    gmpilot login
    ```
