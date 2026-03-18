@@ -94,6 +94,13 @@ export const assetCommands = {
       spinner.stop();
       logger.bold('\n--- Sprite Animation Metadata ---');
       console.log(response);
+
+      if (!fs.existsSync('.gmpilot/assets')) {
+         fs.mkdirSync('.gmpilot/assets', { recursive: true });
+      }
+      const filename = `.gmpilot/assets/sprite_${desc.replace(/\s+/g, '_')}_${Date.now()}.md`;
+      fs.writeFileSync(filename, response);
+      logger.success(`Sprite metadata saved to: ${filename}`);
     } catch (err: any) {
       spinner.stop();
       logger.error(err.message);
@@ -107,6 +114,13 @@ export const assetCommands = {
       spinner.stop();
       logger.bold('\n--- PBR Material Maps ---');
       console.log(response);
+
+      if (!fs.existsSync('.gmpilot/assets')) {
+         fs.mkdirSync('.gmpilot/assets', { recursive: true });
+      }
+      const filename = `.gmpilot/assets/material_${prompt.replace(/\s+/g, '_')}_${Date.now()}.md`;
+      fs.writeFileSync(filename, response);
+      logger.success(`Material maps saved to: ${filename}`);
     } catch (err: any) {
       spinner.stop();
       logger.error(err.message);
@@ -120,6 +134,13 @@ export const assetCommands = {
       spinner.stop();
       logger.bold('\n--- VFX Particle Parameters ---');
       console.log(response);
+
+      if (!fs.existsSync('.gmpilot/assets')) {
+         fs.mkdirSync('.gmpilot/assets', { recursive: true });
+      }
+      const filename = `.gmpilot/assets/vfx_${Date.now()}.md`;
+      fs.writeFileSync(filename, response);
+      logger.success(`VFX parameters saved to: ${filename}`);
     } catch (err: any) {
       spinner.stop();
       logger.error(err.message);

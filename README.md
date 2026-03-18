@@ -1,4 +1,4 @@
-# 🛸 GameMindPilot CLI v3.2.1 - The Interactive Architect Suite
+# 🛸 GameMindPilot CLI v3.3.0 - The Persistence Mastery Suite
 
 [![npm version](https://img.shields.io/npm/v/gamemindpilot.svg)](https://www.npmjs.com/package/gamemindpilot)
 [![downloads](https://img.shields.io/npm/dm/gamemindpilot.svg)](https://www.npmjs.com/package/gamemindpilot)
