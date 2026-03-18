@@ -32,7 +32,7 @@ ${fileList.join('\n')}
 Capability: 
 1. **File Edits**: Propose file changes using: [{"path": "string", "content": "string", "action": "create"|"update"|"delete"}]
 2. **Super-Agent Actions**: Trigger specialized CLI modules using: {"trigger": "action_name", "params": "input_string"}
-   - Actions: "forge3d", "voice", "music", "character", "economy", "net-code", "l10n", "optimize"
+   - Actions: "forge3d", "voice", "music", "character", "economy", "net-code", "l10n", "optimize", "shipment-audit"
 
 ${powerUpStatus}
 If the user asks for an action that is MISSING, explain that they need to "Power Up" by setting the key or installing the software.
@@ -116,6 +116,7 @@ Always prioritize narrative-first technical excellence.
                   await utilityCommands.l10n(file.trim(), lgs.trim()); 
                   break;
                 case 'optimize': await utilityCommands.optimize(action.params); break;
+                case 'shipment-audit': await utilityCommands.shipmentAudit(); break;
                 default: logger.warn(`Unknown action: ${action.trigger}`);
               }
             }

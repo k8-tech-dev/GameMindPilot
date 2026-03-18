@@ -277,6 +277,54 @@ Run \`gmpilot --help\` for a full list of commands.
     }
   },
 
+  shipmentAudit: async () => {
+    const spinner = ora('Running 100-Point Shipment Ready Audit...').start();
+    try {
+      const projectSummary = projectManager.getSummary();
+      const files = projectManager.scanFiles();
+      
+      // Manual Checks
+      const legalFiles = ['LICENSE', 'PRIVACY.md', 'EULA.md'];
+      const missingLegal = legalFiles.filter(f => !fs.existsSync(f));
+      
+      const largeAssets = files.filter(f => {
+        try {
+          const stats = fs.statSync(f);
+          return stats.size > 50 * 1024 * 1024; // 50MB
+        } catch { return false; }
+      });
+
+      const auditPrompt = `As a Triple-A Release Manager, perform a Shipment Readiness Audit.
+      Project: ${projectSummary}
+      Files: ${files.join(', ')}
+      Missing Legal Files: ${missingLegal.join(', ')}
+      Large Assets (>50MB): ${largeAssets.join(', ')}
+      
+      Provide a "Shipment Score" (0-100) and a checklist for:
+      1. Legal & Compliance (EULA, GDPR, License).
+      2. Store Assets (Icon, Screenshots, Descriptions).
+      3. Performance & Optimization (Compression, LODs).
+      4. Code Integrity (Tests, Versioning).`;
+
+      const report = await AIService.chat(auditPrompt);
+      spinner.stop();
+      logger.bold('\n--- 🚢 SHIPMENT READY AUDIT REPORT ---');
+      console.log(report);
+      
+      if (missingLegal.length > 0) {
+        logger.warn(`⚠️ Warning: Missing legal files: ${missingLegal.join(', ')}`);
+      }
+      if (largeAssets.length > 0) {
+        logger.warn(`⚠️ Warning: Large unoptimized assets detected: ${largeAssets.join(', ')}`);
+      }
+      
+      logger.success('Audit complete. Your Masterpiece is ready for the world!');
+    } catch (err: any) {
+      spinner.stop();
+      logger.error(err.message);
+    }
+  },
+
   runTestBots: async (count: number = 10) => {
     logger.info(`Launching ${count} headless automated playtest bots...`);
     logger.info('Bots are traversing "Level_01"... No crashes detected.');

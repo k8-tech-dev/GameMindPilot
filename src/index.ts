@@ -12,7 +12,7 @@ const program = new Command();
 program
   .name('gmpilot')
   .description('GameMindPilot CLI - Your AI Game Development Assistant')
-  .version('3.6.0');
+  .version('3.7.0');
 
 import { loginCommand, logoutCommand } from './commands/login';
 import { chatCommand } from './commands/chat';
@@ -174,11 +174,7 @@ program
   .description('Generate complete game system boilerplate')
   .action(assetCommands.blueprint);
 
-program
-  .command('item')
-  .alias('enemy')
-  .description('Procedural asset generation (item/enemy) [Legacy]')
-  .action(assetCommands.item);
+// item/enemy already registered in assets suite
 
 import { designCommands } from './commands/design';
 
@@ -276,23 +272,24 @@ program
   .action(utilityCommands.l10nSync);
 
 program
-  .command('net-code')
-  .description('Multiplayer Networking Architect')
-  .argument('<prompt>', 'Functionality description')
-  .action(utilityCommands.netCode);
+  .command('net-code <prompt>')
+  .description('Multiplayer Networking Architect: Generate networking logic')
+  .action((prompt) => utilityCommands.netCode(prompt));
 
 program
-  .command('l10n')
-  .description('AI Universal Localization Generator')
-  .argument('<file>', 'Source file (.json/.csv)')
-  .argument('<langs>', 'Comma-separated languages')
-  .action(utilityCommands.l10n);
+  .command('l10n <file> <langs>')
+  .description('AI Universal Localization Generator (Professional)')
+  .action((file, langs) => utilityCommands.l10n(file, langs));
 
 program
-  .command('optimize')
-  .description('Performance Optimization Audit')
-  .argument('[prompt]', 'Specific focus area')
-  .action(utilityCommands.optimize);
+  .command('optimize [prompt]')
+  .description('Performance Optimization Audit (Professional)')
+  .action((prompt) => utilityCommands.optimize(prompt || 'General audit'));
+
+program
+  .command('shipment-audit')
+  .description('Final 100-Point Store Ready Audit (Sovereign Masterpiece)')
+  .action(utilityCommands.shipmentAudit);
 
 program
   .command('voice-script')
@@ -622,10 +619,7 @@ program
   .description('AI Monetization Strategist: Generate an economic report')
   .action((prompt) => utilityCommands.economy(prompt));
 
-program
-  .command('net-code <prompt>')
-  .description('AI Multiplayer Architect: Generate networking logic')
-  .action((prompt) => utilityCommands.netCode(prompt));
+// Net-code already registered above
 
 // Default action: Dashboard
 if (!process.argv.slice(2).length || (process.argv[2] && !program.commands.map(c => c.name()).includes(process.argv[2]) && !process.argv[2].startsWith('-'))) {

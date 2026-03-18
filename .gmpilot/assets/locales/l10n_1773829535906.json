@@ -1,0 +1,119 @@
+Here are the translations in Hindi and Spanish:
+
+**Hindi Translation**
+
+{
+"नाम": "गेममाइंडपायलट",
+"संस्करण": "३.६.०",
+"विवरण": "AI-शक्ति CLI गेम डेवलपर्स के लिए - डिज़ाइन, एसेट जनरेशन, एनालिसिस & ऑप्टिमाइज़ेशन",
+"मुख्य": "dist/index.js",
+"बिन": {
+  "गम्पायलट": "./dist/index.js"
+},
+"रिपोजिटरी": {
+  "प्रकार": "जीआईटी",
+  "यूआरएल": "https://github.com/k8-tech-dev/GameMindPilot.git"
+},
+"स्क्रिप्ट्स": {
+  "निर्माण": "tsc",
+  "शुरुआत": "नोड dist/index.js",
+  "विकास": "टीएस-नोड src/index.ts",
+  "परीक्षा": "चहक \"कोई परीक्षा निर्दिष्ट नहीं है\" && एक्सित १"
+},
+"मुख्य कीवर्ड": [
+  "गेमडेव",
+  "AI",
+  "CLI",
+  "गेममाइंडपायलट",
+  "यूनिटी",
+  "एनरेल",
+  "गोडोट",
+  "जनरेशन"
+],
+"लेखक": "गेममाइंडपायलट",
+"लाइसेंस": "एमआईटी",
+"प्रकार": "कामनज्स",
+"निर्भर": {
+  "axios": "^१.१३.६",
+  "ब्लेस्ड": "^०.१.८१",
+  "चालक": "^५.६.२",
+  "커맨더": "^१४.०.३",
+  "डॉट-env": "^१७.३.१",
+  "एक्सप्रेस": "^५.२.१",
+  "ग्लोब": "^१३.०.६",
+  "इनक्वायर": "^९.३.८",
+  "ओरा": "^९.३.०"
+},
+"विकास निर्भर": {
+  "@types/axios": "^०.९.३६",
+  "@types/blessed": "^०.१.२७",
+  "@types/chalk": "^०.४.३१",
+  "@types/express": "^५.०.६",
+  "@types/glob": "^८.१.०",
+  "@types/inquirer": "^९.०.९",
+  "@types/node": "^२५.५.०",
+  "@types/ora": "^३.१.०",
+  "टीएस-नोड": "^१०.९.२",
+  "टाइपसक्रिप्ट": "^५.९.३"
+}
+}
+
+**Spanish Translation**
+
+{
+"nombre": "GameMindPilot",
+"versión": "3.6.0",
+"description": "CLI impulsado por inteligencia artificial para desarrolladores de juegos - Diseño, Generación de Activos, Análisis & Optimización",
+"main": "dist/index.js",
+"bin": {
+  "gmpilot": "./dist/index.js"
+},
+"repositorio": {
+  "tipo": "git",
+  "url": "https://github.com/k8-tech-dev/GameMindPilot.git"
+},
+"scripts": {
+  "build": "tsc",
+  "start": "node dist/index.js",
+  "dev": "ts-node src/index.ts",
+  "test": "echo \"Error: no test specified\" && exit 1"
+},
+"palabras clave": [
+  "gamedev",
+  "AI",
+  "CLI",
+  "GameMindPilot",
+  "Unity",
+  "Unreal",
+  "Godot",
+  "Generación"
+],
+"autor": "GameMindPilot",
+"licencia": "MIT",
+"type": "commonjs",
+"dependencies": {
+  "axios": "^1.13.6",
+  "blessed": "^0.1.81",
+  "chalk": "^5.6.2",
+  "commander": "^14.0.3",
+  "dotenv": "^17.3.1",
+  "express": "^5.2.1",
+  "glob": "^13.0.6",
+  "inquirer": "^9.3.8",
+  "ora": "^9.3.0"
+},
+"devDependencies": {
+  "@types/axios": "^0.9.36",
+  "@types/blessed": "^0.1.27",
+  "@types/chalk": "^0.4.31",
+  "@types/express": "^5.0.6",
+  "@types/glob": "^8.1.0",
+  "@types/inquirer": "^9.0.9",
+  "@types/node": "^25.5.0",
+  "@types/ora": "^3.1.0",
+  "ts-node": "^10.9.2",
+  "typescript": "^5.9.3"
+}
+}
+
+Let me know if you need any further assistance!
