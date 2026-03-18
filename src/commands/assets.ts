@@ -4,6 +4,7 @@ import { logger } from '../utils/logger';
 import fs from 'fs';
 import path from 'path';
 import { projectManager } from '../utils/project';
+import { blenderManager } from '../utils/blender';
 
 export const assetCommands = {
   script: async (engine: string = 'unity') => {
@@ -170,6 +171,43 @@ export const assetCommands = {
     } catch (err: any) {
       spinner.stop();
       logger.error(err.message);
+    }
+  },
+
+  forge3d: async (prompt: string) => {
+    const spinner = ora(`Forging 3D Asset: ${prompt}...`).start();
+    try {
+      const aiPrompt = `As a Senior Blender Technical Artist, write a Blender Python (bpy) script to create a 3D model: "${prompt}". 
+      Requirements:
+      1. Create the mesh procedurally.
+      2. Export the result as '.glb' to a file named 'output.glb' in the current directory.
+      3. ONLY return the raw Python code. No explanations, no markdown code blocks.`;
+
+      const pythonScript = await AIService.chat(aiPrompt);
+      spinner.text = 'AI script received. Launching Blender Processor...';
+
+      if (!fs.existsSync('.gmpilot/assets')) {
+          fs.mkdirSync('.gmpilot/assets', { recursive: true });
+      }
+
+      const timestamp = Date.now();
+      const outputFile = path.join(process.cwd(), '.gmpilot', 'assets', `forge_${timestamp}.glb`);
+      
+      // We need to modify the script slightly to ensure it exports to the correct absolute path
+      const modifiedScript = pythonScript + `\nimport bpy\nimport os\nbpy.ops.export_scene.gltf(filepath=r"${outputFile}")`;
+
+      const success = await blenderManager.render3D(modifiedScript, outputFile);
+      spinner.stop();
+
+      if (success) {
+        logger.success(`3D Forge Complete: ${outputFile}`);
+        projectManager.addEntry('3D Forge', `Generated 3D Asset for: ${prompt}. Saved to: ${outputFile}`);
+      } else {
+        logger.error('3D Forge failed. Ensure Blender is installed and accessible.');
+      }
+    } catch (err: any) {
+      spinner.stop();
+      logger.error(`Forge Error: ${err.message}`);
     }
   },
 };

@@ -12,7 +12,7 @@ const program = new Command();
 program
   .name('gmpilot')
   .description('GameMindPilot CLI - Your AI Game Development Assistant')
-  .version('3.3.0');
+  .version('3.4.0');
 
 import { loginCommand, logoutCommand } from './commands/login';
 import { chatCommand } from './commands/chat';
@@ -137,6 +137,11 @@ assets
   .command('all')
   .description('Generate a complete asset suite (Mastery Level)')
   .action(assetCommands.all);
+
+assets
+  .command('forge3d <prompt>')
+  .description('Autonomous 3D Asset Forge (Requires Blender)')
+  .action((prompt) => assetCommands.forge3d(prompt));
 
 program
   .command('script')

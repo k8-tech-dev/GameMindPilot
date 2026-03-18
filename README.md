@@ -1,4 +1,4 @@
-# 🛸 GameMindPilot CLI v3.3.0 - The Persistence Mastery Suite
+# 🛸 GameMindPilot CLI v3.4.0 - The 3D Forge Update
 
 [![npm version](https://img.shields.io/npm/v/gamemindpilot.svg)](https://www.npmjs.com/package/gamemindpilot)
 [![downloads](https://img.shields.io/npm/dm/gamemindpilot.svg)](https://www.npmjs.com/package/gamemindpilot)
@@ -53,24 +53,24 @@ While we have a massive toolkit, these 5 features are the absolute best in the i
 ### 5. AI Security Scan (`security-scan`) - "Mission Critical"
 *   **The Proof**:
     > **Output Snippet**: "Vulnerability: RPC Spoofing in 'NetController.cs'. Exploit: Cheaters could trigger 'WinGame' events from the client. Remediation: Implement Tick-based HMAC Verification."
-# 🛸 GameMindPilot v3.1.0 - The Architect Suite
+# 🛸 GameMindPilot v3.4.0 - The 3D Forge Update
 
 **Elevate your Game Development with the Ultimate AI Mission Control.**
 
-GameMindPilot is an industry-grade CLI assistant designed for Senior Game Architects. From narrative-first concepts to technical audits and procedural assets, gmpilot automates the friction so you can focus on the fun.
+GameMindPilot is an industry-grade CLI assistant designed for Senior Game Architects. From narrative-first concepts to technical audits and autonomous 3D generation, gmpilot automates the friction so you can focus on the fun.
 
 ---
 
-## 🚀 New in v3.1.0: The Architect Suite
+## 🚀 New in v3.4.0: The 3D Forge Update
 
 This major release transforms GameMindPilot into a complete game development ecosystem:
 
-1.  **🏗️ Project Architect (`architect`)**: THE KILLER FEATURE. Give a high-level prompt, and GameMindPilot will autonomously scan, read, and modify your entire project structure.
-2.  **📄 GDD Architect (`export`)**: Instantly turn your project's AI history into a professional, multi-page Game Design Document.
-3.  **📦 Asset Generation v2 (`assets all`)**: Generate full asset suites (items, enemies, VFX) and save them directly to your project as persistent files.
-4.  **🖥️ Project Dashboard (`dashboard`)**: Launch a premium, browser-based command center to visualize your project's technical and narrative evolution.
-5.  **🏗️ Code Scaffolder (`scaffold`)**: Generate architecture-aware boilerplate for Unity (C#), Pygame (Python), and Web (JS) in seconds.
-6.  **🎮 AI Playtester (`playtest`)**: Engage an "AI QA Lead" to perform mental playtests of your mechanics and provide critical balancing feedback.
+1.  **🎮 3D Forge (`assets forge3d`)**: THE GOD-TIER FEATURE. GameMindPilot now speaks Blender! Give a prompt, and the CLI will autonomously script and execute Blender in headless mode to generate a real 3D asset (`.glb`). *Requires Blender installed.*
+2.  **🏗️ Project Architect (`architect`)**: THE KILLER FEATURE. Give a high-level prompt, and GameMindPilot will autonomously scan, read, and modify your entire project structure.
+3.  **🗣️ Interactive Architect Chat (`chat`)**: Real-time project-aware coding directly in the chat with one-click implementation.
+4.  **📄 GDD Architect (`export`)**: Instantly turn your project's AI history into a professional, multi-page Game Design Document.
+5.  **📦 Asset Persistence**: Every generated asset (Scripts, VFX, Materials, 3D Forge) is now saved as a persistent file.
+6.  **🖥️ Project Dashboard (`dashboard`)**: Launch a premium command center to visualize your project's evolution.
 
 ---
 
