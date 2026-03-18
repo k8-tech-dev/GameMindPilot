@@ -57,10 +57,7 @@ export const projectManager = {
         timestamp: new Date().toISOString(),
         content
       });
-      // Keep only last 10 entries to avoid token bloat
-      if (context.history.length > 10) {
-        context.history = context.history.slice(-10);
-      }
+      // No more limits! AI will remember everything.
       fs.writeFileSync(CONTEXT_FILE, JSON.stringify(context, null, 2));
     } catch (err) {
       // Silent fail to avoid crashing the main command flow
@@ -73,9 +70,9 @@ export const projectManager = {
       const context = projectManager.get();
       if (context.history.length === 0) return "No previous history found for this project.";
       
-      let summary = `Project: ${context.projectName} (Author: ${context.author})\n\nRecent History:\n`;
+      let summary = `Project: ${context.projectName} (Author: ${context.author})\n\nFull Project History:\n`;
       context.history.forEach((entry, i) => {
-        summary += `[${i+1}] ${entry.type} (${new Date(entry.timestamp).toLocaleString()}):\n${entry.content.substring(0, 3000)}...\n\n`;
+        summary += `--- Entry [${i+1}]: ${entry.type} (${new Date(entry.timestamp).toLocaleString()}) ---\n${entry.content}\n\n`;
       });
       return summary;
     } catch (err) {
