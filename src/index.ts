@@ -12,7 +12,7 @@ const program = new Command();
 program
   .name('gmpilot')
   .description('GameMindPilot CLI - Your AI Game Development Assistant')
-  .version('3.5.2');
+  .version('3.6.0');
 
 import { loginCommand, logoutCommand } from './commands/login';
 import { chatCommand } from './commands/chat';
@@ -276,9 +276,23 @@ program
   .action(utilityCommands.l10nSync);
 
 program
-  .command('sound-gen')
-  .description('Generate sound effect prompts and descriptions')
-  .action(utilityCommands.soundGen);
+  .command('net-code')
+  .description('Multiplayer Networking Architect')
+  .argument('<prompt>', 'Functionality description')
+  .action(utilityCommands.netCode);
+
+program
+  .command('l10n')
+  .description('AI Universal Localization Generator')
+  .argument('<file>', 'Source file (.json/.csv)')
+  .argument('<langs>', 'Comma-separated languages')
+  .action(utilityCommands.l10n);
+
+program
+  .command('optimize')
+  .description('Performance Optimization Audit')
+  .argument('[prompt]', 'Specific focus area')
+  .action(utilityCommands.optimize);
 
 program
   .command('voice-script')

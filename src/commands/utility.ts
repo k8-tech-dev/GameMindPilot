@@ -14,6 +14,8 @@ import { projectManager } from '../utils/project';
 import { economyManager } from '../utils/economy';
 import { bridgeManager } from '../utils/bridge';
 import { blenderManager } from '../utils/blender';
+import { l10nManager } from '../utils/l10n';
+import { optiManager } from '../utils/opti';
 
 export const utilityCommands = {
   update: async () => {
@@ -246,6 +248,33 @@ Run \`gmpilot --help\` for a full list of commands.
   liveSync: async () => {
     logger.bold('\n--- 🚀 Launching Engine Live Bridge ---');
     bridgeManager.start();
+  },
+
+  l10n: async (filePath: string, langs: string) => {
+    const spinner = ora('Translating Game Strings (L10n Master)...').start();
+    try {
+      const languageList = langs.split(',').map(l => l.trim());
+      const { resultPath } = await l10nManager.translate(filePath, languageList);
+      spinner.stop();
+      logger.success(`Localization complete! Results saved to: ${resultPath}`);
+    } catch (err: any) {
+      spinner.stop();
+      logger.error(err.message);
+    }
+  },
+
+  optimize: async (prompt: string) => {
+    const spinner = ora('Running Performance Optimization Audit (Opti-Vision)...').start();
+    try {
+      const report = await optiManager.analyze(prompt);
+      spinner.stop();
+      logger.bold('\n--- ⚡ Performance Optimization Report ---');
+      console.log(report);
+      logger.success('Optimization audit complete.');
+    } catch (err: any) {
+      spinner.stop();
+      logger.error(err.message);
+    }
   },
 
   runTestBots: async (count: number = 10) => {
